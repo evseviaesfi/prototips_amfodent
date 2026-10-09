@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Стоматологические установки — Амфодент · прототип 1</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header="catalog.html"></div>
+
+<main class="wrap">
+  <nav class="crumbs" data-crumbs></nav>
+  <div class="page-title"><h1 data-title>Стоматологические установки</h1><span data-sub></span></div>
+  <div class="subcats" data-subs></div>
+
+  <div class="catalog">
+    <div class="filters-bg" data-fbg></div>
+    <aside class="filters" data-filters aria-label="Фильтр товаров">
+      <div class="filters__head"><h3><span data-ic="sliders"></span>Фильтр товаров</h3><button class="icon-btn ffilters-btn" data-fclose aria-label="Закрыть"><span data-ic="x"></span></button></div>
+      <div class="filters__body" data-fbody></div>
+      <div class="filters__foot"><button class="btn btn-primary" data-fapply>Показать <span data-fcount></span></button><button class="btn btn-soft" data-freset>Сбросить</button></div>
+    </aside>
+
+    <section>
+      <div class="toolbar">
+        <button class="btn btn-outline btn-sm ffilters-btn" data-fopen><span data-ic="sliders"></span>Фильтры</button>
+        <span class="toolbar__found" data-found></span>
+        <label class="select"><span class="sr">Сортировка</span><select data-sort>
+          <option value="def">По популярности</option><option value="asc">Сначала дешевле</option><option value="desc">Сначала дороже</option><option value="name">По названию</option>
+        </select><span data-ic="chevD"></span></label>
+        <div class="viewsw"><button class="is-on" data-view="grid" aria-label="Плиткой"><span data-ic="grid"></span></button><button data-view="list" aria-label="Списком"><span data-ic="list"></span></button></div>
+      </div>
+      <div class="active-f" data-active></div>
+      <div class="grid" data-grid></div>
+      <nav class="pager" data-pager aria-label="Страницы"></nav>
+    </section>
+  </div>
+</main>
+
+<div data-footer></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,ic=A.ic,esc=u.esc,C=A.category;
+  var q=(new URLSearchParams(location.search).get('q')||'').trim();
+  var base=q?Object.keys(A.byId).map(function(k){return A.byId[k];}):C.products;
+
+  /* крошки, заголовок, подкатегории */
+  $('[data-crumbs]').innerHTML=C.crumbs.map(function(c){return '<a href="'+u.href(c[1])+'">'+esc(c[0])+'</a>'+ic('chevR');}).join('')+'<span>'+(q?'Поиск':esc(C.title))+'</span>';
+  if(q){$('[data-title]').textContent='Поиск: «'+q+'»';$('[data-subs]').remove();}
+  else $('[data-subs]').innerHTML=C.subs.map(function(s){return '<a class="subcat" href="'+u.href(s[2])+'"><img src="https://amfodent.ru/image/cache/'+s[1]+'" alt="">'+esc(s[0])+'</a>';}).join('');
+
+  /* фильтры */
+  var st={brand:[],country:[],feed:[],stock:[],min:C.priceMin,max:C.priceMax,pop:null,misc:{}};
+  var brandsIn={},countryIn={};base.forEach(function(p){if(p.brand)brandsIn[p.brand]=(brandsIn[p.brand]||0)+1;if(p.country)countryIn[p.country]=(countryIn[p.country]||0)+1;});
+  function group(title,inner,open,count){return '<div class="fgroup'+(open?'':' is-closed')+'"><button class="fgroup__h">'+title+(count?'<span class="fgroup__n">'+count+'</span>':'')+ic('chevD')+'</button><div class="fgroup__b">'+inner+'</div></div>';}
+  function checks(key,vals,counts,limit){return '<div class="'+(vals.length>8?'flist':'')+'">'+vals.map(function(v,i){var n=counts&&counts[v];return '<label class="check"'+(limit&&i>=limit?' data-more hidden':'')+'><input type="checkbox" data-k="'+key+'" value="'+esc(v)+'"><i></i>'+esc(v)+(n?'<small>'+n+'</small>':'')+'</label>';}).join('')+'</div>';}
+  var fb=$('[data-fbody]');
+  var brandVals=C.filters[0].vals.slice().sort(function(a,b){return (brandsIn[b]?1:0)-(brandsIn[a]?1:0);});
+  fb.innerHTML=
+    group('Популярное','<div class="chips">'+C.popular.map(function(p){return '<button class="chip chip-soft" data-pop="'+esc(p)+'">'+esc(p)+'</button>';}).join('')+'</div>',true)+
+    group('Цена, ₽','<div class="prices"><label>от<input inputmode="numeric" data-pmin></label><label>до<input inputmode="numeric" data-pmax></label></div><div class="range"><div class="range__track"></div><div class="range__fill"></div><input type="range" data-rmin min="0" max="1000" value="0" aria-label="Цена от"><input type="range" data-rmax min="0" max="1000" value="1000" aria-label="Цена до"></div>',true)+
+    group('Производитель','<input class="fsearch" placeholder="Найти производителя" data-bsearch>'+checks('brand',brandVals,brandsIn),true)+
+    group('Страна производителя',checks('country',C.filters[1].vals,countryIn,8)+'<button class="fmore" data-showmore>Показать все</button>',true)+
+    group('Подача инструментов',checks('feed',C.filters[4].vals),true)+
+    group('Количество инструментов','<div class="chips">'+C.filters[2].vals.map(function(v){return '<button class="chip" data-misc="instr" data-v="'+v+'">'+v+'</button>';}).join('')+'</div>',false)+
+    group('Кресло пациента',checks('chair',C.filters[3].vals),false)+
+    group('Тип гидроблока',checks('hydro',C.filters[5].vals),false)+
+    group('Наличие',checks('stock',C.filters[6].vals),true);
+
+  /* цена: двойной ползунок (логарифмическая шкала — дорогих мало) */
+  var lmin=Math.log(C.priceMin),lmax=Math.log(C.priceMax);
+  function toP(v){return Math.round(Math.exp(lmin+(lmax-lmin)*v/1000)/10)*10;}
+  function toV(p){return Math.round((Math.log(Math.max(C.priceMin,p))-lmin)/(lmax-lmin)*1000);}
+  var rmin=$('[data-rmin]'),rmax=$('[data-rmax]'),pmin=$('[data-pmin]'),pmax=$('[data-pmax]'),fill=$('.range__fill');
+  function fmt(n){return n.toLocaleString('ru-RU');}
+  function paintRange(){var a=+rmin.value,b=+rmax.value;fill.style.left=(a/10)+'%';fill.style.right=(100-b/10)+'%';}
+  function fromRange(){if(+rmin.value>+rmax.value-10){if(this===rmin)rmin.value=+rmax.value-10;else rmax.value=+rmin.value+10;}st.min=+rmin.value<=0?C.priceMin:toP(+rmin.value);st.max=+rmax.value>=1000?C.priceMax:toP(+rmax.value);pmin.value=fmt(st.min);pmax.value=fmt(st.max);paintRange();apply();}
+  rmin.oninput=fromRange;rmax.oninput=fromRange;
+  function fromInput(){st.min=u.num(pmin.value)||C.priceMin;st.max=u.num(pmax.value)||C.priceMax;rmin.value=toV(st.min);rmax.value=st.max>=C.priceMax?1000:toV(st.max);paintRange();apply();}
+  pmin.onchange=fromInput;pmax.onchange=fromInput;pmin.value=fmt(C.priceMin);pmax.value=fmt(C.priceMax);paintRange();
+
+  fb.addEventListener('click',function(e){
+    var h=e.target.closest('.fgroup__h');if(h){h.parentNode.classList.toggle('is-closed');return;}
+    var pop=e.target.closest('[data-pop]');if(pop){var on=!pop.classList.contains('is-on');$$('[data-pop]').forEach(function(x){x.classList.remove('is-on');});if(on)pop.classList.add('is-on');st.pop=on?pop.getAttribute('data-pop'):null;apply();return;}
+    var m=e.target.closest('[data-misc]');if(m){m.classList.toggle('is-on');return;}
+    var sm=e.target.closest('[data-showmore]');if(sm){$$('[data-more]',sm.parentNode).forEach(function(x){x.hidden=false;});sm.remove();}
+  });
+  fb.addEventListener('change',function(e){var k=e.target.getAttribute('data-k');if(!k)return;if(st[k])st[k]=$$('input[data-k="'+k+'"]:checked').map(function(i){return i.value;});apply();});
+  $('[data-bsearch]').oninput=function(){var v=this.value.toLowerCase();$$('input[data-k=brand]').forEach(function(i){i.parentNode.style.display=i.value.toLowerCase().indexOf(v)>=0?'':'none';});};
+
+  /* применение */
+  var view='grid',sort='def',list=[];
+  function match(p){
+    var pr=u.num(p.price);
+    if(q){var s=(p.name+' '+p.model+' '+p.brand).toLowerCase();if(!q.toLowerCase().split(/\s+/).every(function(w){return s.indexOf(w)>=0;}))return false;}
+    if(st.brand.length&&st.brand.indexOf(p.brand)<0)return false;
+    if(st.country.length&&st.country.indexOf(p.country)<0)return false;
+    if(pr&&(pr<st.min||pr>st.max))return false;
+    if(st.feed.length){var n=p.name.toLowerCase(),ok=st.feed.some(function(f){return f==='Верхняя подача'?/верхн/.test(n):f==='Нижняя подача'?/нижн/.test(n):/верхн/.test(n)&&/нижн/.test(n);});if(!ok)return false;}
+    if(st.stock.length){var has=!/Не доступен/.test(p.stock);if(!(st.stock.indexOf('Есть в наличии')>=0&&has||st.stock.indexOf('Нет в наличии')>=0&&!has))return false;}
+    if(st.pop){var t=st.pop,nm=(p.name+' '+p.brand+' '+p.country).toLowerCase();if(t==='Нижняя подача'){if(!/нижн/.test(nm))return false;}else if(t==='Верхняя подача'){if(!/верхн/.test(nm))return false;}else if(t==='Diplomat'){if(!/diplomat/.test(nm))return false;}else if(nm.indexOf(t.toLowerCase())<0)return false;}
+    return true;
+  }
+  function apply(){
+    list=base.filter(match);
+    if(sort!=='def')list.sort(function(a,b){if(sort==='name')return a.name.localeCompare(b.name,'ru');var x=u.num(a.price)||1e12,y=u.num(b.price)||1e12;return sort==='asc'?x-y:y-x;});
+    var g=$('[data-grid]');g.className='grid'+(view==='list'?' is-list':'');
+    g.innerHTML=list.length?list.map(A.card).join(''):'<div class="empty" style="grid-column:1/-1"><b>Ничего не нашлось</b>Измените условия фильтра или сбросьте его.<br><br><button class="btn btn-primary" data-freset2>Сбросить фильтр</button></div>';
+    var w=function(n){return n%10===1&&n%100!==11?'товар':n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'товара':'товаров';};
+    $('[data-found]').innerHTML='Найдено <b>'+list.length+'</b> '+w(list.length)+(q?'':' на странице 1 из '+C.pages);
+    $('[data-fcount]').textContent='('+list.length+')';
+    $('[data-sub]').textContent=q?list.length+' '+w(list.length):'';
+    var chips=[];['brand','country','feed','stock'].forEach(function(k){st[k].forEach(function(v){chips.push('<button class="chip" data-rm="'+k+'" data-v="'+esc(v)+'">'+esc(v)+ic('x')+'</button>');});});
+    if(st.pop)chips.push('<button class="chip" data-rm="pop">'+esc(st.pop)+ic('x')+'</button>');
+    if(st.min>C.priceMin||st.max<C.priceMax)chips.push('<button class="chip" data-rm="price">'+fmt(st.min)+' – '+fmt(st.max)+' ₽'+ic('x')+'</button>');
+    if(chips.length)chips.push('<button class="chip" data-rm="all" style="background:#fff">Сбросить всё</button>');
+    $('[data-active]').innerHTML=chips.join('');
+    $$('[data-fgroup-n]').forEach(function(){});
+    A.sync();
+  }
+  function reset(){st.brand=[];st.country=[];st.feed=[];st.stock=[];st.pop=null;st.min=C.priceMin;st.max=C.priceMax;$$('input[data-k]').forEach(function(i){i.checked=false;});$$('[data-pop],[data-misc]').forEach(function(x){x.classList.remove('is-on');});rmin.value=0;rmax.value=1000;pmin.value=fmt(C.priceMin);pmax.value=fmt(C.priceMax);paintRange();apply();}
+  $('[data-active]').addEventListener('click',function(e){var c=e.target.closest('[data-rm]');if(!c)return;var k=c.getAttribute('data-rm'),v=c.getAttribute('data-v');
+    if(k==='all')return reset();if(k==='pop'){st.pop=null;$$('[data-pop]').forEach(function(x){x.classList.remove('is-on');});}
+    else if(k==='price'){st.min=C.priceMin;st.max=C.priceMax;rmin.value=0;rmax.value=1000;pmin.value=fmt(st.min);pmax.value=fmt(st.max);paintRange();}
+    else{st[k]=st[k].filter(function(x){return x!==v;});$$('input[data-k="'+k+'"]').forEach(function(i){if(i.value===v)i.checked=false;});}apply();});
+  document.addEventListener('click',function(e){if(e.target.closest('[data-freset],[data-freset2]'))reset();});
+  $('[data-sort]').onchange=function(){sort=this.value;apply();};
+  $$('[data-view]').forEach(function(b){b.onclick=function(){view=b.getAttribute('data-view');$$('[data-view]').forEach(function(x){x.classList.toggle('is-on',x===b);});apply();};});
+
+  /* мобильный фильтр */
+  var F=$('[data-filters]'),bg=$('[data-fbg]');
+  function fopen(o){F.classList.toggle('is-open',o);bg.classList.toggle('is-on',o);}
+  $('[data-fopen]').onclick=function(){fopen(true);};$('[data-fclose]').onclick=function(){fopen(false);};bg.onclick=function(){fopen(false);};
+  $('[data-fapply]').onclick=function(){fopen(false);window.scrollTo({top:$('.toolbar').getBoundingClientRect().top+scrollY-80,behavior:'smooth'});};
+
+  /* пагинация (для вида) */
+  var pg='<span class="is-cur">1</span>';for(var i=2;i<=C.pages;i++)pg+='<a href="https://amfodent.ru/stomatologicheskoe-oborudovanie/stomatologicheskie-ustanovki/?page='+i+'">'+i+'</a>';
+  $('[data-pager]').innerHTML=q?'':pg+'<a href="https://amfodent.ru/stomatologicheskoe-oborudovanie/stomatologicheskie-ustanovki/?page=2" aria-label="Дальше">'+ic('chevR')+'</a>';
+
+  $$('[data-ic]').forEach(function(e){if(e.className)e.innerHTML=ic(e.getAttribute('data-ic'));else e.outerHTML=ic(e.getAttribute('data-ic'));});
+  apply();
+});
+</script>
+</body>
+</html>

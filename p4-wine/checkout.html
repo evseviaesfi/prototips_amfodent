@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Оформление заказа — Амфодент · прототип 4</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header=""></div>
+<main class="wrap">
+  <nav class="crumbs"><a href="index.html">Главная</a><span class="sep">/</span><a href="cart.html">Корзина</a><span class="sep">/</span><span>Оформление заказа</span></nav>
+  <div class="page-title"><h1>Оформление заказа</h1></div>
+  <div class="dots" data-dots><span class="is-done"><i>✓</i>Корзина</span><b></b><span class="is-cur" data-d="1"><i>1</i>Покупатель</span><b></b><span data-d="2"><i>2</i>Доставка</span><b></b><span data-d="3"><i>3</i>Оплата</span></div>
+  <form class="cart" data-form novalidate>
+    <div>
+      <section class="osec" data-sec="1">
+        <div class="osec__h"><i>1</i><h3>Покупатель</h3></div>
+        <div class="segm who" role="tablist"><button type="button" class="is-on" data-who="person">Частное лицо</button><button type="button" data-who="org">Клиника / организация</button></div>
+        <div class="fields">
+          <div class="field" data-org hidden><label>Название организации</label><input class="input" placeholder="ООО «Стоматология»"></div>
+          <div class="field" data-org hidden><label>ИНН</label><input class="input" inputmode="numeric" placeholder="10 или 12 цифр"></div>
+          <div class="field"><label>Имя <i>*</i></label><input class="input" name="name" required placeholder="Как к вам обращаться"><span class="err">Укажите имя</span></div>
+          <div class="field"><label>Телефон <i>*</i></label><input class="input" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"><span class="err">Укажите телефон для связи</span></div>
+          <div class="field full"><label>Email <i>*</i></label><input class="input" name="email" type="email" required placeholder="you@clinic.ru"><span class="err">Нужен email, чтобы прислать счёт</span></div>
+        </div>
+      </section>
+      <section class="osec" data-sec="2">
+        <div class="osec__h"><i>2</i><h3>Доставка</h3></div>
+        <div class="ptiles">
+          <label class="ptile"><input type="radio" name="ship" checked><span data-ic="truck"></span><b>Курьерская доставка</b><span>До двери, курьерской службой</span><em>рассчитывается индивидуально</em></label>
+        </div>
+        <div class="fields" style="margin-top:16px">
+          <div class="field"><label>Город</label><input class="input" placeholder="Например, Санкт-Петербург"></div>
+          <div class="field"><label>Адрес</label><input class="input" placeholder="Улица, дом, офис"></div>
+        </div>
+      </section>
+      <section class="osec" data-sec="3">
+        <div class="osec__h"><i>3</i><h3>Оплата</h3></div>
+        <div class="ptiles">
+          <label class="ptile"><input type="radio" name="pay" checked><span data-ic="card"></span><b>Безналичный перевод</b><span>Выставим счёт после подтверждения заказа</span></label>
+          <label class="ptile is-dis"><input type="radio" name="pay" disabled><span data-ic="cash"></span><b>Наличными при получении</b><span>Недоступно при курьерской доставке. Только в Санкт-Петербурге.</span></label>
+        </div>
+        <div class="field" style="margin-top:18px"><label>Комментарий к заказу</label><textarea class="input" placeholder="Удобное время звонка, реквизиты, пожелания по комплектации"></textarea></div>
+      </section>
+    </div>
+    <aside class="summary">
+      <h3>Ваш заказ</h3>
+      <div class="mini-items" data-mini></div>
+      <div class="srow"><span data-items></span><b data-sum></b></div>
+      <div class="srow"><span>Доставка</span><b>рассчитывается индивидуально</b></div>
+      <div class="stotal" style="margin-top:16px"><span>Итого</span><b data-total></b></div>
+      <label class="check consent"><input type="checkbox" checked data-agree><i></i><span>Соглашаюсь с <a href="https://amfodent.ru/privacy/">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span></label>
+      <button class="btn btn-white btn-lg btn-block" type="submit">Подтвердить заказ</button>
+      <a class="btn btn-ghost btn-block" href="cart.html" style="margin-top:8px">Вернуться в корзину</a>
+    </aside>
+  </form>
+</main>
+<div class="modal" data-modal-id="done"><div class="modal__box" style="text-align:center"><button class="cbtn modal__x" data-close aria-label="Закрыть"><span data-ic="x"></span></button><div class="ii" style="margin:0 auto 16px;width:68px;height:68px"><span data-ic="check"></span></div><h3 style="padding:0">Заказ оформлен</h3><p>Это прототип — заказ никуда не отправлен. На рабочем сайте здесь будет номер заказа, а менеджер свяжется с вами для подтверждения.</p><a class="btn btn-wine btn-block" href="index.html">На главную</a></div></div>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,esc=u.esc;
+  var c=A.cart.get(),ids=Object.keys(c).filter(function(k){return A.byId[k];}),n=A.cart.count();
+  $('[data-mini]').innerHTML=ids.map(function(id){var p=A.byId[id];return '<div class="mini"><img src="'+esc(p.img)+'" alt=""><span>'+esc(p.name)+' <span style="opacity:.6">× '+c[id]+'</span></span><b>'+(u.num(p.price)?u.rub(u.num(p.price)*c[id]):'—')+'</b></div>';}).join('')||'<p style="opacity:.6">Корзина пуста</p>';
+  $('[data-items]').textContent='Товары ('+n+')';$('[data-sum]').textContent=u.rub(A.cart.total());$('[data-total]').textContent=u.rub(A.cart.total());
+  $$('[data-who]').forEach(function(b){b.onclick=function(){$$('[data-who]').forEach(function(x){x.classList.toggle('is-on',x===b);});$$('[data-org]').forEach(function(f){f.hidden=b.getAttribute('data-who')!=='org';});};});
+
+  /* шкала шагов: отмечает секцию, до которой дошёл покупатель */
+  var secs=$$('[data-sec]'),dots=$$('[data-d]');
+  function mark(k){dots.forEach(function(d,i){d.classList.toggle('is-done',i<k-1);d.classList.toggle('is-cur',i===k-1);if(i<k-1)d.querySelector('i').textContent='✓';else d.querySelector('i').textContent=i+1;});}
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)mark(+e.target.getAttribute('data-sec'));});},{rootMargin:'-40% 0px -50% 0px'});secs.forEach(function(s){io.observe(s);});}
+
+  $('[data-form]').onsubmit=function(e){e.preventDefault();var ok=true;
+    $$('[required]',this).forEach(function(i){var bad=!i.value.trim()||(i.type==='email'&&!/@/.test(i.value));i.classList.toggle('is-err',bad);i.parentNode.classList.toggle('is-err',bad);if(bad&&ok){i.focus();ok=false;}});
+    if(!ok)return;if(!$('[data-agree]').checked){$('.consent').style.color='#fff';return;}
+    mark(4);A.openModal('done');};
+  $$('[required]').forEach(function(i){i.addEventListener('input',function(){i.classList.remove('is-err');i.parentNode.classList.remove('is-err');});});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Оформление заказа — Амфодент · прототип 2</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header=""></div>
+<main class="wrap">
+  <nav class="crumbs"><a href="index.html">Главная</a><span class="sep">/</span><a href="cart.html">Корзина</a><span class="sep">/</span><span>Оформление заказа</span></nav>
+  <div class="page-title"><h1>Оформление заказа</h1></div>
+  <div class="steps-bar"><div class="sb is-done"><i>✓</i><span>Корзина</span></div><div class="sb is-cur"><i>02</i><span>Покупатель</span></div><div class="sb"><i>03</i><span>Доставка</span></div><div class="sb"><i>04</i><span>Оплата</span></div></div>
+  <form class="cart" data-form novalidate>
+    <div class="steps">
+      <section class="step">
+        <div class="step__h"><span class="step__n">02</span><h3>Покупатель</h3><a class="more" href="#" data-modal="login">Я уже зарегистрирован <span data-ic="arrow"></span></a></div>
+        <div class="segm" role="tablist"><button type="button" class="is-on" data-who="person">Частное лицо</button><button type="button" data-who="org">Клиника / организация</button></div>
+        <div class="fields">
+          <div class="field" data-org hidden><label>Название организации</label><input class="input" placeholder="ООО «Стоматология»"></div>
+          <div class="field" data-org hidden><label>ИНН</label><input class="input" inputmode="numeric" placeholder="10 или 12 цифр"></div>
+          <div class="field"><label>Имя <i>*</i></label><input class="input" name="name" required placeholder="Как к вам обращаться"><span class="err">Укажите имя</span></div>
+          <div class="field"><label>Телефон <i>*</i></label><input class="input" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"><span class="err">Укажите телефон для связи</span></div>
+          <div class="field full"><label>Email <i>*</i></label><input class="input" name="email" type="email" required placeholder="you@clinic.ru"><span class="err">Нужен email, чтобы прислать счёт</span></div>
+        </div>
+      </section>
+      <section class="step">
+        <div class="step__h"><span class="step__n">03</span><h3>Доставка</h3></div>
+        <div class="radios">
+          <label class="rcard"><input type="radio" name="ship" checked><i></i><div><b>Курьерская доставка</b><span>До двери, курьерской службой</span></div><span class="rprice">рассчитывается индивидуально</span></label>
+        </div>
+        <div class="fields" style="margin-top:14px">
+          <div class="field"><label>Город</label><input class="input" placeholder="Например, Санкт-Петербург"></div>
+          <div class="field"><label>Адрес</label><input class="input" placeholder="Улица, дом, офис"></div>
+        </div>
+      </section>
+      <section class="step">
+        <div class="step__h"><span class="step__n">04</span><h3>Оплата</h3></div>
+        <div class="radios">
+          <label class="rcard"><input type="radio" name="pay" checked><i></i><div><b>Безналичный перевод</b><span>Выставим счёт после подтверждения заказа</span></div></label>
+          <label class="rcard is-dis"><input type="radio" name="pay" disabled><i></i><div><b>Наличными при получении</b><span>Недоступно при курьерской доставке. Оплата наличными возможна только в Санкт-Петербурге.</span></div></label>
+        </div>
+      </section>
+      <section class="step">
+        <div class="step__h"><span class="step__n">05</span><h3>Комментарий</h3></div>
+        <textarea class="input" placeholder="Удобное время звонка, реквизиты, пожелания по комплектации"></textarea>
+      </section>
+    </div>
+    <aside class="summary"><span class="frame-ticks"></span>
+      <h3>Ваш заказ</h3>
+      <div class="mini-items" data-mini></div>
+      <div class="srow"><span data-items></span><b data-sum></b></div>
+      <div class="srow"><span>Доставка</span><b>рассчитывается<br>индивидуально</b></div>
+      <div class="stotal"><span>Итого</span><b data-total></b></div>
+      <label class="check consent"><input type="checkbox" checked data-agree><i></i><span>Соглашаюсь с <a href="https://amfodent.ru/privacy/">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span></label>
+      <button class="btn btn-teal btn-lg btn-block" type="submit">Подтвердить заказ</button>
+      <a class="btn btn-ghost btn-block" href="cart.html" style="margin-top:8px"><span data-ic="chevL"></span>Вернуться в корзину</a>
+    </aside>
+  </form>
+</main>
+<div class="modal" data-modal-id="done"><div class="modal__box" style="text-align:center"><button class="hbtn modal__x" data-close aria-label="Закрыть"></button><div class="ii" style="margin:0 auto 14px;width:64px;height:64px" data-done-ic></div><h3>Заказ оформлен</h3><p>Это прототип — заказ никуда не отправлен. На рабочем сайте здесь будет номер заказа, а менеджер свяжется с вами для подтверждения.</p><a class="btn btn-teal btn-block" href="index.html">На главную</a></div></div>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,ic=A.ic,esc=u.esc;
+  function sum(){var c=A.cart.get(),ids=Object.keys(c).filter(function(k){return A.byId[k];}),n=A.cart.count();
+    $('[data-mini]').innerHTML=ids.map(function(id){var p=A.byId[id];return '<div class="mini"><img src="'+esc(p.img)+'" alt=""><span>'+esc(p.name)+' <span style="color:var(--muted)">× '+c[id]+'</span></span><b>'+(u.num(p.price)?u.rub(u.num(p.price)*c[id]):'—')+'</b></div>';}).join('')||'<p style="color:var(--muted)">Корзина пуста</p>';
+    $('[data-items]').textContent='Товары ('+n+')';$('[data-sum]').textContent=u.rub(A.cart.total());$('[data-total]').textContent=u.rub(A.cart.total());}
+  sum();
+  $$('[data-who]').forEach(function(b){b.onclick=function(){$$('[data-who]').forEach(function(x){x.classList.toggle('is-on',x===b);});$$('[data-org]').forEach(function(f){f.hidden=b.getAttribute('data-who')!=='org';});};});
+  $('[data-form]').onsubmit=function(e){e.preventDefault();var ok=true;
+    $$('[required]',this).forEach(function(i){var bad=!i.value.trim()||(i.type==='email'&&!/@/.test(i.value));i.classList.toggle('is-err',bad);i.parentNode.classList.toggle('is-err',bad);if(bad&&ok){i.focus();ok=false;}});
+    if(!ok)return;if(!$('[data-agree]').checked){alert('Нужно согласие на обработку данных');return;}
+    $('[data-done-ic]').innerHTML=ic('check');$('[data-modal-id=done] .modal__x').innerHTML=ic('x');A.openModal('done');};
+  $$('[required]').forEach(function(i){i.addEventListener('input',function(){i.classList.remove('is-err');i.parentNode.classList.remove('is-err');});});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S280 TRC — Амфодент · прототип 4</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header="catalog.html"></div>
+
+<main class="wrap">
+  <nav class="crumbs" data-crumbs></nav>
+  <div class="pdp">
+    <div class="gallery">
+      <div class="gallery__main" data-main><div class="gallery__badges" data-badges></div><img data-mainimg alt="">
+        <div class="gallery__nav"><button class="cbtn" data-gp="-1" aria-label="Предыдущее фото"><span data-ic="chevL"></span></button><button class="cbtn" data-gp="1" aria-label="Следующее фото"><span data-ic="chevR"></span></button></div>
+        <span class="gallery__count" data-gcount></span>
+        <button class="cbtn gallery__zoom" data-zoom aria-label="Увеличить"><span data-ic="zoom"></span></button>
+      </div>
+      <div class="gallery__thumbs" data-thumbs></div>
+    </div>
+    <div class="buy" data-buy></div>
+  </div>
+
+  <div class="ptabs">
+    <div class="ptabs__nav"><div class="segm" role="tablist"><button class="is-on" data-pt="desc">Описание</button><button data-pt="spec">Характеристики</button><button data-pt="pay">Оплата</button><button data-pt="ship">Доставка</button><button data-pt="warr">Гарантии</button></div></div>
+    <div class="ptabs__pane is-on" data-pane="desc"></div>
+    <div class="ptabs__pane" data-pane="spec"></div>
+    <div class="ptabs__pane" data-pane="pay"></div>
+    <div class="ptabs__pane" data-pane="ship"></div>
+    <div class="ptabs__pane" data-pane="warr"></div>
+  </div>
+
+  <section class="section" data-rail>
+    <div class="sh"><div class="sh__t"><span class="kicker">Подборка</span><h2>Похожие товары</h2></div><div class="rail__nav" style="margin-left:auto"><button class="rail__btn prev" aria-label="Назад"></button><button class="rail__btn next" aria-label="Вперёд"></button></div></div>
+    <div class="rail"><div class="rail__track" data-related></div></div>
+  </section>
+</main>
+
+<div class="sbar" data-sbar></div>
+<div class="modal modal-img" data-modal-id="img"><div class="modal__box"><button class="cbtn modal__x" data-close aria-label="Закрыть"><span data-ic="x"></span></button><img data-bigimg alt=""></div></div>
+<div data-footer></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,ic=A.ic,esc=u.esc,D=A.product;
+  var id=new URLSearchParams(location.search).get('id')||D.id;
+  var full=id===D.id, p=A.byId[id]||A.byId[D.id];
+  var name=full?D.name:p.name, gal=full?D.gallery:[{big:p.img.replace(/-\d+x\d+\./,'-1000x1000.'),mid:p.img,th:p.img}];
+  document.title=name+' — Амфодент · прототип 4';
+  var sep='<span class="sep">/</span>';$('[data-crumbs]').innerHTML='<a href="index.html">Главная</a>'+sep+'<a href="catalog.html">Стоматологическое оборудование</a>'+sep+'<a href="catalog.html">Стоматологические установки</a>'+sep+'<span>'+esc(name)+'</span>';
+
+  /* галерея */
+  var main=$('[data-mainimg]');
+  $('[data-thumbs]').innerHTML=gal.map(function(g,i){return '<button'+(i?'':' class="is-on"')+' data-i="'+i+'" aria-label="Фото '+(i+1)+'"><img src="'+g.th+'" alt=""></button>';}).join('');
+  function pick(i){main.src=gal[i].big;main.onerror=function(){main.onerror=null;main.src=gal[i].mid;};$$('[data-thumbs] button').forEach(function(b,k){b.classList.toggle('is-on',k===i);});cur=i;var gc=$('[data-gcount]');if(gc)gc.textContent=gal.length>1?(i+1)+' / '+gal.length:'';}
+  var cur=0;pick(0);
+  $('[data-thumbs]').onclick=function(e){var b=e.target.closest('button');if(b)pick(+b.getAttribute('data-i'));};
+  $$('[data-gp]').forEach(function(b){b.onclick=function(e){e.stopPropagation();pick((cur+(+b.getAttribute('data-gp'))+gal.length)%gal.length);};if(gal.length<2)b.hidden=true;});
+  $('[data-main]').onclick=function(e){if(e.target.closest('[data-gp]'))return;$('[data-bigimg]').src=main.src;A.openModal('img');};
+  $('[data-badges]').innerHTML=p.marks.map(A.badgeHtml).join('');
+
+  /* блок покупки */
+  var attrs=full?D.attrs:[['Артикул',p.model]].concat(p.brand?[['Производитель',p.brand]]:[]).concat(p.country?[['Страна',p.country]]:[]);
+  var can=u.num(p.price)>0&&!/Не доступен/.test(p.stock);
+  $('[data-buy]').innerHTML=
+    '<div class="buy__top">'+(p.brand?'<span class="brandchip"><i>'+ic('medal')+'</i>'+esc(p.brand)+(p.country?' · '+esc(p.country):'')+'</span>':'<span></span>')+'<span class="stock '+A.stockCls(p.stock)+'">'+esc(A.stockTxt(p.stock))+'</span></div>'+
+    '<h1>'+esc(name)+'</h1>'+
+    '<div class="buy__meta"><span>Артикул <b>'+esc(p.model)+'</b></span><span>Код <b>'+esc(p.id)+'</b></span></div>'+
+    '<ul class="specs-mini">'+attrs.map(function(a){return '<li><span>'+esc(a[0])+'</span><b>'+esc(a[1])+'</b></li>';}).join('')+'</ul>'+
+    '<div class="buycard">'+
+      '<div class="buy__price">'+(u.num(p.price)?'<b>'+esc(p.price)+'</b>'+(p.old?'<s>'+esc(p.old)+'</s>':''):'<b style="font-size:26px">Цена по запросу</b>')+'</div>'+
+      '<div class="buy__note">Наличие, сроки поставки и комплектацию уточнит менеджер.</div>'+
+      (can?'<div class="buy__row"><div class="qty"><button data-q="-1" aria-label="Меньше">'+ic('minus')+'</button><input id="qty" value="1" inputmode="numeric" aria-label="Количество"><button data-q="1" aria-label="Больше">'+ic('plus')+'</button></div><button class="btn btn-wine btn-lg" data-add="'+p.id+'" data-qty="#qty">'+ic('cart')+'В корзину</button></div>':'')+
+      '<button class="btn btn-pearl btn-lg" data-modal="callback">'+ic('phone')+(can?'Купить в 1 клик':'Запросить цену и сроки')+'</button>'+
+    '</div>'+
+    '<div class="buy__icons"><button data-fav="'+p.id+'">'+ic('heart')+'В избранное</button><button data-cmp="'+p.id+'">'+ic('scales')+'Сравнить</button><button data-modal="kp">'+ic('doc')+'Коммерческое предложение</button></div>'+
+    '<div class="perks"><div class="perk">'+ic('truck')+'<div><b>Доставка по России</b>Стоимость рассчитывается индивидуально</div></div><div class="perk">'+ic('shield')+'<div><b>Гарантия</b>Официальная гарантия производителя</div></div><div class="perk">'+ic('gear')+'<div><b>Сервис</b>Монтаж и обслуживание нашим сервисным центром</div></div></div>';
+  var qi=$('#qty');$$('[data-q]').forEach(function(b){b.onclick=function(){qi.value=Math.max(1,(parseInt(qi.value,10)||1)+(+b.getAttribute('data-q')));};});
+
+  /* вкладки */
+  $('[data-pane=desc]').innerHTML=full?D.desc.map(function(s){return '<h3>'+esc(s[0])+'</h3><ul>'+s[1].map(function(l){return '<li>'+esc(l)+'</li>';}).join('')+'</ul>';}).join('')+'<p><a class="more" href="https://amfodent.ru/s280-trc-stomatologicheskaya-ustanovka-s-verhney-ili-nizhney-podachey-instrumentov">Полное описание на сайте '+ic('arrow')+'</a></p>':'<p>Подробное описание и комплектация — на странице товара.</p><p><a class="more" href="'+esc(p.href)+'">Открыть на amfodent.ru '+ic('arrow')+'</a></p>';
+  $('[data-pane=spec]').innerHTML='<table class="spec-table">'+attrs.map(function(a){return '<tr><td>'+esc(a[0])+'</td><td>'+esc(a[1])+'</td></tr>';}).join('')+'</table>';
+  $('[data-pane=pay]').innerHTML='<div class="info-cards"><div class="info-card"><span class="ii">'+ic('card')+'</span><div><b>Безналичный перевод</b>Счёт для юридических лиц и ИП. Оплата по счёту после подтверждения заказа менеджером.</div></div><div class="info-card"><span class="ii">'+ic('cash')+'</span><div><b>Наличными при получении</b>Доступно только в Санкт-Петербурге.</div></div></div>';
+  $('[data-pane=ship]').innerHTML='<div class="info-cards"><div class="info-card"><span class="ii">'+ic('truck')+'</span><div><b>Курьерская доставка</b>До двери, курьерской службой. Стоимость рассчитывается индивидуально.</div></div><div class="info-card"><span class="ii">'+ic('pin')+'</span><div><b>Адрес компании</b>'+esc(A.address)+'</div></div></div><p style="margin-top:16px"><a class="more" href="https://amfodent.ru/delivery/">Подробнее о доставке и оплате '+ic('arrow')+'</a></p>';
+  $('[data-pane=warr]').innerHTML='<div class="info-cards"><div class="info-card"><span class="ii">'+ic('shield')+'</span><div><b>Гарантия производителя</b>На всё оборудование действует официальная гарантия.</div></div><div class="info-card"><span class="ii">'+ic('gear')+'</span><div><b>Лицензированный сервисный центр</b>Гарантийное и постгарантийное обслуживание.</div></div></div><p style="margin-top:16px"><a class="more" href="https://amfodent.ru/garantiya-i-sposoby-vozvrata-tovara/">Гарантия и возврат товара '+ic('arrow')+'</a></p>';
+  $$('[data-pt]').forEach(function(b){b.onclick=function(){$$('[data-pt]').forEach(function(x){x.classList.toggle('is-on',x===b);});$$('[data-pane]').forEach(function(x){x.classList.toggle('is-on',x.getAttribute('data-pane')===b.getAttribute('data-pt'));});};});
+
+  /* липкая панель покупки, когда блок цены ушёл с экрана */
+  var sb=$('[data-sbar]');
+  sb.innerHTML='<img src="'+esc(p.img)+'" alt=""><span>'+esc(name)+'</span><b>'+(u.num(p.price)?esc(p.price):'Цена по запросу')+'</b>'+(can?'<button class="btn btn-wine" data-add="'+p.id+'">'+ic('cart')+'В корзину</button>':'<button class="btn btn-wine" data-modal="callback">'+ic('phone')+'Запросить цену</button>');
+  if('IntersectionObserver' in window)new IntersectionObserver(function(en){var e=en[0];sb.classList.toggle('is-on',!e.isIntersecting&&e.boundingClientRect.top<0);}).observe($('.buycard'));
+
+  /* похожие */
+  $('[data-related]').innerHTML=A.category.products.filter(function(x){return x.id!==p.id;}).slice(0,10).map(A.card).join('');
+  A.rail($('[data-rail]'));
+});
+</script>
+</body>
+</html>

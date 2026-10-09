@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Амфодент — стоматологическое оборудование · прототип 4</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header=""></div>
+<main>
+  <!-- первый экран: витрина с выбором товара -->
+  <section class="wrap hero">
+    <div class="hero__box" data-slides>
+      <div class="hero__copy">
+        <span class="kicker">Ведущие производители · с 1993 года</span>
+        <h1>Стоматологическое оборудование <em>для вашей клиники</em></h1>
+        <p class="hero__lead">Установки, рентген, стерилизация, наконечники и мебель. Подбор, поставка, монтаж и сервис — в одних руках.</p>
+        <div class="hero__cta">
+          <a class="btn btn-wine btn-lg" href="catalog.html">Перейти в каталог <span data-ic="arrow"></span></a>
+          <button class="btn btn-pearl btn-lg" data-modal="callback"><span data-ic="phone"></span>Получить консультацию</button>
+        </div>
+        <div class="hero__facts">
+          <div><b>33 года</b><span>на рынке</span></div>
+          <div><b>200+</b><span>производителей</span></div>
+          <div><b>Сервис</b><span>свой центр</span></div>
+        </div>
+      </div>
+      <div class="hero__stage">
+        <div class="hero__show" data-show></div>
+        <div class="hero__thumbs" data-hthumbs></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- плитки категорий с фото -->
+  <section class="wrap section">
+    <div class="sh"><div class="sh__t"><span class="kicker">Каталог</span><h2>Что вы ищете?</h2></div><a class="more" href="catalog.html">Все разделы <span data-ic="arrow"></span></a></div>
+    <div class="tiles" data-tiles></div>
+  </section>
+
+  <!-- тонкая полоса брендов -->
+  <div class="bstrip" aria-label="Производители"><div class="bstrip__track" data-bstrip></div></div>
+
+  <!-- товары -->
+  <section class="wrap section">
+    <div class="sh"><div class="sh__t"><span class="kicker">Выбор клиник</span><h2>Популярные товары</h2></div>
+      <div class="segm" role="tablist"><button class="is-on" data-tab="sale">Хиты продаж</button><button data-tab="novelty">Новинки</button><button data-tab="units">Установки</button></div>
+      <a class="more" href="catalog.html">В каталог <span data-ic="arrow"></span></a>
+    </div>
+    <div class="pgrid" data-products></div>
+  </section>
+
+  <!-- баннеры производителей: картинки без изменений -->
+  <section class="wrap section">
+    <div class="sh"><div class="sh__t"><span class="kicker">Предложения производителей</span><h2>Акции и спецпредложения</h2></div></div>
+    <div class="promos" data-promo-top></div>
+    <div class="promos-mid" data-promo-mid></div>
+  </section>
+
+  <!-- готовые решения -->
+  <section class="wrap section">
+    <div class="sh"><div class="sh__t"><span class="kicker">Готовые решения</span><h2>Оснащение кабинета одним заказом</h2></div><button class="more" data-modal="kp">Подобрать под задачу <span data-ic="arrow"></span></button></div>
+    <div class="kits" data-kits></div>
+    <p class="kits-note">Примеры комплектации из товаров каталога. Менеджер подберёт состав и проверит совместимость под ваш кабинет.</p>
+  </section>
+
+  <!-- новинки -->
+  <section class="wrap section" data-rail2>
+    <div class="sh"><div class="sh__t"><span class="kicker">Только что в каталоге</span><h2>Новинки</h2></div><div class="rail__nav" style="margin-left:auto"><button class="rail__btn prev" aria-label="Назад"></button><button class="rail__btn next" aria-label="Вперёд"></button></div></div>
+    <div class="rail"><div class="rail__track" data-novelty></div></div>
+  </section>
+
+  <!-- преимущества -->
+  <section class="wrap section">
+    <div class="advs" data-advs></div>
+  </section>
+
+  <!-- блог -->
+  <section class="wrap section">
+    <div class="sh"><div class="sh__t"><span class="kicker">Блог</span><h2>Полезно знать</h2></div><a class="more" href="https://amfodent.ru/shopblog/">Все статьи <span data-ic="arrow"></span></a></div>
+    <div class="posts" data-posts></div>
+  </section>
+
+  <!-- SEO -->
+  <section class="wrap section">
+    <div class="seo" data-seo>
+      <h2>Стоматологическое оборудование</h2>
+      <div>
+        <div class="seo__t">
+          <p>Качество услуг стоматологического кабинета или клиники невозможно обеспечить без современного стоматологического оборудования и расходных материалов. Оснащенность медицинского кабинета влияет на успешность учреждения, число пациентов, желающих в комфортных условиях пройти стоматологическое лечение, получить качественную услугу.</p>
+          <p>Купить зуботехническое и стоматологическое оборудование можно в компании «Амфодент». Мы работаем с 1993 года, поставляем продукцию ведущих мировых производителей и сами выполняем гарантийное и постгарантийное обслуживание.</p>
+          <p>Компания «Амфодент» предлагает большой выбор стоматологических установок, рентгеновского оборудования, наконечников, стерилизационного оборудования, медицинской мебели и инструментов. На нашем сайте вы сможете подобрать оборудование по параметрам, сравнить модели и оформить заказ с доставкой по России.</p>
+        </div>
+        <button class="more seo__more" data-seo-more>Читать дальше <span data-ic="chevD"></span></button>
+      </div>
+    </div>
+  </section>
+</main>
+<div data-footer></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,ic=A.ic,esc=u.esc;
+
+  /* витрина первого экрана: выбор товара миниатюрами */
+  var S=$('[data-slides]');
+  $('[data-show]').innerHTML=A.hero.map(function(h,i){return '<a class="slide'+(i?'':' is-active')+'" href="'+u.href(h.href)+'"><span class="slide__img"><img src="'+esc(h.img)+'" alt="'+esc(h.title)+'"></span><span class="slide__tag"><small>'+esc(h.kicker)+'</small><b>'+esc(h.title)+'</b><i>'+esc(h.price)+'</i></span></a>';}).join('');
+  $('[data-hthumbs]').innerHTML=A.hero.map(function(h,i){return '<button'+(i?'':' class="is-on"')+' aria-label="'+esc(h.title)+'"><img src="'+esc(h.img)+'" alt=""><span>'+esc(h.title)+'</span></button>';}).join('');
+  var cur=0,slides=$$('.slide',S),th=$$('[data-hthumbs] button'),timer;
+  function show(i){cur=(i+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('is-active',k===cur);});th.forEach(function(d,k){d.classList.toggle('is-on',k===cur);});}
+  function auto(){clearInterval(timer);timer=setInterval(function(){show(cur+1);},6500);}
+  th.forEach(function(d,k){d.onclick=function(){show(k);auto();};});auto();
+
+  /* плитки категорий с фото */
+  $('[data-tiles]').innerHTML=A.cats.map(function(c,i){var cls=i===0?' tile-big':i===10?' tile-wide tile-dark':i>=9?' tile-wide':'';return '<a class="tile'+cls+'" href="'+A.catHref(c)+'"><b>'+esc(c[0])+'</b><span class="tile__go">'+ic('arrow')+'</span><img loading="lazy" src="'+u.img(c[1])+'" alt=""></a>';}).join('');
+
+  /* полоса брендов: бегущая строка */
+  var logos=[['Stern Weber','stern-weber-italiia_logo-250x80.jpg','oborudovanie-ot-stern-weber-italiya/'],['MyRay','myray_logo-250x80.jpg','oborudovanie-ot-myray-italiya/'],['Sirona','sirona-germaniia_logo-250x80.jpg','sirona-germaniya/'],['Ivoclar','ivoclar_standard_rgb-250x80.png','ivoclar/'],['DALAUDE','dalaude-250x80.jpg','dalaude/']];
+  var strip=logos.map(function(l){return '<a href="'+u.href(l[2])+'" title="'+esc(l[0])+'"><img src="https://amfodent.ru/image/cache/catalog/manufacturers_logo/'+l[1]+'" alt="'+esc(l[0])+'"></a><span class="bstrip__dot"></span>';}).join('')+
+    A.brands.filter(function(b){return !/Stern Weber/.test(b);}).map(function(b){return '<a href="https://amfodent.ru/brands/">'+esc(b)+'</a><span class="bstrip__dot"></span>';}).join('');
+  $('[data-bstrip]').innerHTML=strip+strip;
+
+  /* товары */
+  var sets={sale:A.sale.slice(0,8),novelty:A.novelty.slice(0,8),units:A.category.products.filter(function(p){return u.num(p.price)>0;}).slice(0,8)};
+  function fill(k){$('[data-products]').innerHTML=sets[k].map(A.card).join('');A.sync();}
+  $$('[data-tab]').forEach(function(t){t.onclick=function(){$$('[data-tab]').forEach(function(x){x.classList.toggle('is-on',x===t);});fill(t.getAttribute('data-tab'));};});
+  fill('sale');
+
+  /* баннеры производителей */
+  $('[data-promo-top]').innerHTML=A.promoTop.map(function(p){return '<a class="promo" href="'+p.href+'"><img src="'+p.img+'" alt="'+esc(p.title)+'"><span class="promo__cap"><span><small>'+esc(p.tag)+'</small>'+esc(p.title)+'</span>'+ic('arrow')+'</span></a>';}).join('');
+  $('[data-promo-mid]').innerHTML=A.promoMid.map(function(p){return '<a class="promo-mid" href="'+p.href+'"><img src="'+p.img+'" alt="'+esc(p.title)+'"></a>';}).join('');
+
+  /* готовые решения: комплекты из реальных товаров каталога */
+  var kits=[
+    {t:'Старт',n:'4 позиции',d:'Базовое оснащение терапевтического кабинета',ids:['2796','9925','10067','10063']},
+    {t:'Оптимум',n:'5 позиций',d:'Кабинет с интраоральной камерой и УФ-хранением',ids:['2819','9924','10069','9936','10064'],hl:1},
+    {t:'Премиум',n:'4 позиции',d:'Флагманская установка и стерилизационная',ids:['2829','9939','10060','10061']}
+  ];
+  $('[data-kits]').innerHTML=kits.map(function(k,i){var sum=0;var li=k.ids.map(function(id){var p=A.byId[id];if(!p)return '';sum+=u.num(p.price);return '<li><a href="'+A.purl(p)+'"><img src="'+esc(p.img)+'" alt=""><span>'+esc(p.name)+'</span><b>'+esc(p.price)+'</b></a></li>';}).join('');
+    return '<article class="kit'+(k.hl?' kit-hl':'')+'"><div class="kit__h"><h3>'+esc(k.t)+'</h3><span class="kit__n">'+esc(k.n)+'</span></div><p>'+esc(k.d)+'</p><ul>'+li+'</ul><div class="kit__total"><span>Сумма комплекта</span><b>'+u.rub(sum)+'</b></div><div class="kit__act"><button class="btn btn-wine btn-block" data-kit="'+i+'">'+ic('cart')+'Весь комплект в корзину</button><button class="btn btn-pearl btn-block" data-modal="callback">Обсудить с менеджером</button></div></article>';}).join('');
+  $('[data-kits]').addEventListener('click',function(e){var b=e.target.closest('[data-kit]');if(!b)return;var k=kits[+b.getAttribute('data-kit')];k.ids.forEach(function(id){if(A.byId[id])A.cart.add(id,1,true);});b.classList.add('is-added');A.toast('Комплект «'+k.t+'» в корзине',k.ids.length+' позиции добавлены');});
+
+  /* новинки */
+  $('[data-novelty]').innerHTML=A.novelty.map(A.card).join('');A.rail($('[data-rail2]'));
+
+  /* преимущества */
+  $('[data-advs]').innerHTML=A.advantages.map(function(a){return '<a class="adv" href="'+u.href(a[3])+'"><span class="adv__ic">'+ic(A.advIc(a[0]))+'</span><div><b>'+esc(a[1])+'</b><span>'+esc(a[2])+'</span></div></a>';}).join('');
+
+  /* блог */
+  var posts=A.blog.slice().sort(function(a,b){return (b.img?1:0)-(a.img?1:0);});
+  $('[data-posts]').innerHTML=posts.map(function(p){return '<a class="post" href="'+p.href+'"><span class="post__img">'+(p.img?'<img loading="lazy" src="'+p.img+'" alt="">':ic('doc'))+'</span><span class="post__b"><small>'+esc(p.date)+'</small><b>'+esc(p.title)+'</b></span></a>';}).join('');
+
+  $('[data-seo-more]').onclick=function(){var s=$('[data-seo]');var o=s.classList.toggle('is-open');this.firstChild.textContent=o?'Свернуть ':'Читать дальше ';};
+});
+</script>
+</body>
+</html>

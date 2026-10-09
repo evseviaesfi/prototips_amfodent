@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Амфодент — прототипы нового сайта</title>
+<link rel="icon" href="emblem.svg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#13233a;--muted:#6a7b90;--line:#e2e8f0;--bg:#f3f6fa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,Arial,sans-serif}
+.w{max-width:1100px;margin:0 auto;padding:56px 24px}
+header{display:flex;align-items:center;gap:16px;margin-bottom:28px}header img{width:64px}
+h1{font:800 34px/1.15 Montserrat,Arial,sans-serif;margin:0}
+p.lead{color:var(--muted);max-width:720px;margin:0 0 34px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.v{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
+a.v:hover{box-shadow:0 18px 40px -20px rgba(16,40,72,.35);transform:translateY(-3px)}
+.sw{height:120px;display:flex}.sw span{flex:1}
+.b{padding:20px 22px 22px}
+.b h2{font:800 20px/1.2 Montserrat,Arial,sans-serif;margin:0 0 6px}
+.b p{margin:0 0 14px;color:var(--muted);font-size:14.5px}
+.st{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;padding:6px 10px;border-radius:8px}
+.ok{background:#e3f6ea;color:#1f9d55}.wait{background:#eef1f5;color:#6a7b90}
+.v.off{opacity:.75}
+@media(max-width:720px){.grid{grid-template-columns:1fr}h1{font-size:26px}}
+</style>
+</head>
+<body><div class="w">
+<header><img src="emblem.svg" alt=""><h1>Амфодент — прототипы нового сайта</h1></header>
+<p class="lead">Четыре варианта дизайна на реальных данных amfodent.ru: товары, цены, категории и баннеры производителей взяты с сайта, баннеры не изменены. В каждом варианте — главная, каталог с фильтром, карточка товара, корзина и оформление заказа. Всё кликается внутри прототипа: товары, каталог, корзина и заказ работают здесь, а разделы, которых в прототипе нет, честно об этом говорят и никуда не уводят.</p>
+<div class="grid">
+  <a class="v" href="p1-blue/index.html"><div class="sw"><span style="background:#0f2a47"></span><span style="background:#1769d1"></span><span style="background:#c24a30"></span><span style="background:#f3f6fa"></span></div><div class="b"><h2>1. Синий</h2><p>«Надёжный»: тёмно-синее меню, синие кнопки каталога, терракотовые кнопки покупки, стекло и зерно.</p><span class="st ok">● Готов к просмотру</span></div></a>
+  <a class="v" href="p2-teal/index.html"><div class="sw"><span style="background:#141f24"></span><span style="background:#2f8f8a"></span><span style="background:#7a2e57"></span><span style="background:#f1f4f4"></span></div><div class="b"><h2>2. Бирюзовый</h2><p>«Технологичный»: графит, бирюза и слива, острые углы, миллиметровка, двухтоновые иконки, блок сравнения.</p><span class="st ok">● Готов к просмотру</span></div></a>
+  <a class="v" href="p3-olive/index.html"><div class="sw"><span style="background:#2b2f26"></span><span style="background:#6b6838"></span><span style="background:#a39b6a"></span><span style="background:#f3efe4"></span></div><div class="b"><h2>3. Оливковый</h2><p>«Спокойный премиум»: бумажная фактура, заголовки с засечками, сплошные иконки, разделы слева, фильтр-панель над товарами, корзина-чек, оформление по шагам.</p><span class="st ok">● Готов к просмотру</span></div></a>
+  <a class="v" href="p4-wine/index.html"><div class="sw"><span style="background:#2a1e22"></span><span style="background:#8a2a33"></span><span style="background:#e9d3d6"></span><span style="background:#f6f3f3"></span></div><div class="b"><h2>4. Бордовый</h2><p>«Витрина»: много воздуха, глянцевые светлые поверхности, плитки категорий с фото, бегущая полоса брендов, «Готовые решения», фильтры-выпадашки, кнопки-таблетки.</p><span class="st ok">● Готов к просмотру</span></div></a>
+</div>
+</div></body></html>

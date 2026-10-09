@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Амфодент — стоматологическое оборудование · прототип 3</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header=""></div>
+<main>
+  <!-- первый экран: текст, витрина, три сервисные плашки -->
+  <section class="wrap hero">
+    <div class="hero__box" data-slides>
+      <div class="hero__copy">
+        <div class="eyebrow">Надёжное оборудование для современной стоматологии</div>
+        <h1>Оснащение клиник <em>с&nbsp;1993&nbsp;года</em></h1>
+        <p class="hero__lead">Установки, рентген, стерилизация, наконечники и мебель ведущих производителей. Подбор, поставка, монтаж и сервис — в одних руках.</p>
+        <div class="hero__cta">
+          <a class="btn btn-sand btn-lg" href="catalog.html">Перейти в каталог <span data-ic="arrow"></span></a>
+          <button class="btn btn-ghost btn-lg" data-modal="callback">Получить консультацию</button>
+        </div>
+        <div class="hero__dots"></div>
+      </div>
+      <div class="hero__stage"><div class="hero__plate"></div></div>
+    </div>
+    <aside class="plaques">
+      <a class="plaque" href="https://amfodent.ru/contact-us"><span class="plaque__ic" data-ic="clinic"></span><span><b>Комплексное оснащение</b>Кабинет под ключ: от подбора до запуска</span><span data-ic="arrow"></span></a>
+      <a class="plaque" href="https://amfodent.ru/about_us/"><span class="plaque__ic" data-ic="medal"></span><span><b>Официальные поставки</b>Работаем напрямую с заводами-производителями</span><span data-ic="arrow"></span></a>
+      <a class="plaque" href="https://amfodent.ru/garantiya-i-sposoby-vozvrata-tovara/"><span class="plaque__ic" data-ic="gear"></span><span><b>Профессиональный сервис</b>Свой лицензированный сервисный центр</span><span data-ic="arrow"></span></a>
+    </aside>
+  </section>
+
+  <!-- полоса фактов -->
+  <section class="wrap"><div class="facts">
+    <div><span data-ic="medal"></span><b>33 года</b><span>на рынке стоматологического оборудования</span></div>
+    <div><span data-ic="star"></span><b>200+ производителей</b><span>в каталоге</span></div>
+    <div><span data-ic="gear"></span><b>Сервисный центр</b><span>гарантийный и постгарантийный ремонт</span></div>
+    <div><span data-ic="truck"></span><b>Доставка по России</b><span>стоимость — индивидуально</span></div>
+  </div></section>
+
+  <!-- категории слева + товары -->
+  <section class="wrap section two">
+    <aside class="side">
+      <h3 class="side__h">Популярные категории</h3>
+      <nav class="side__list" data-side></nav>
+    </aside>
+    <div class="two__main">
+      <div class="sh"><h2>Популярные товары</h2>
+        <div class="tabs" role="tablist"><button class="is-on" data-tab="sale">Хиты продаж</button><button data-tab="novelty">Новинки</button><button data-tab="units">Установки</button></div>
+        <a class="more" href="catalog.html">Перейти в каталог <span data-ic="arrow"></span></a>
+      </div>
+      <div class="pgrid" data-products></div>
+    </div>
+  </section>
+
+  <!-- баннеры производителей: картинки без изменений -->
+  <section class="wrap section">
+    <div class="sh sh-c"><span class="eyebrow">Предложения производителей</span></div>
+    <div class="promos" data-promo-top></div>
+    <div class="promos-mid" data-promo-mid></div>
+  </section>
+
+  <!-- весь каталог -->
+  <section class="wrap section">
+    <div class="sh"><h2>Каталог</h2><a class="more" href="catalog.html">Все разделы <span data-ic="arrow"></span></a></div>
+    <div class="catgrid" data-catgrid></div>
+  </section>
+
+  <!-- производители -->
+  <section class="wrap section">
+    <div class="brands"><span class="brands__h">Производители</span><div class="brands__row" data-brands></div><a class="more" href="https://amfodent.ru/brands/">Все 200+ <span data-ic="arrow"></span></a></div>
+  </section>
+
+  <!-- новинки -->
+  <section class="wrap section">
+    <div class="sh"><h2>Новинки каталога</h2><a class="more" href="catalog.html">Все новинки <span data-ic="arrow"></span></a></div>
+    <div class="rail" data-rail2><button class="rail__btn prev" aria-label="Назад"></button><div class="rail__track" data-novelty></div><button class="rail__btn next" aria-label="Вперёд"></button></div>
+  </section>
+
+  <!-- три направления -->
+  <section class="wrap section"><div class="dirs">
+    <a class="dir dir-1" href="https://amfodent.ru/contact-us"><span class="dir__ic" data-ic="clinic"></span><b>Проектирование и оснащение клиник «под ключ»</b><span>Помогаем на всех этапах: от подбора оборудования до монтажа и запуска.</span><em>Узнать больше <span data-ic="arrow"></span></em></a>
+    <a class="dir dir-2" href="https://amfodent.ru/garantiya-i-sposoby-vozvrata-tovara/"><span class="dir__ic" data-ic="gear"></span><b>Сервис и поддержка</b><span>Лицензированный сервисный центр: гарантийное и постгарантийное обслуживание.</span><em>Подробнее <span data-ic="arrow"></span></em></a>
+    <a class="dir dir-3" href="https://amfodent.ru/specials/"><span class="dir__ic" data-ic="percent"></span><b>Специальные предложения</b><span>Скидки на оборудование и наконечники — в наличии на складе.</span><em>Все акции <span data-ic="arrow"></span></em></a>
+  </div></section>
+
+  <!-- блог: журнальная раскладка -->
+  <section class="wrap section">
+    <div class="sh"><h2>Блог</h2><a class="more" href="https://amfodent.ru/shopblog/">Все статьи <span data-ic="arrow"></span></a></div>
+    <div class="mag" data-posts></div>
+  </section>
+
+  <!-- SEO -->
+  <section class="wrap section">
+    <div class="seo" data-seo>
+      <h2>Стоматологическое оборудование</h2>
+      <div class="seo__t">
+        <p>Качество услуг стоматологического кабинета или клиники невозможно обеспечить без современного стоматологического оборудования и расходных материалов. Оснащенность медицинского кабинета влияет на успешность учреждения, число пациентов, желающих в комфортных условиях пройти стоматологическое лечение, получить качественную услугу.</p>
+        <p>Купить зуботехническое и стоматологическое оборудование можно в компании «Амфодент». Мы работаем с 1993 года, поставляем продукцию ведущих мировых производителей и сами выполняем гарантийное и постгарантийное обслуживание.</p>
+        <p>Компания «Амфодент» предлагает большой выбор стоматологических установок, рентгеновского оборудования, наконечников, стерилизационного оборудования, медицинской мебели и инструментов. На нашем сайте вы сможете подобрать оборудование по параметрам, сравнить модели и оформить заказ с доставкой по России.</p>
+      </div>
+      <button class="more seo__more" data-seo-more>Читать дальше <span data-ic="chevD"></span></button>
+    </div>
+  </section>
+</main>
+<div data-footer></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,ic=A.ic,esc=u.esc;
+
+  /* витрина первого экрана */
+  var S=$('[data-slides]'),plate=$('.hero__plate',S);
+  plate.innerHTML=A.hero.map(function(h,i){return '<a class="slide'+(i?'':' is-active')+'" href="'+u.href(h.href)+'"><span class="slide__img"><img src="'+esc(h.img)+'" alt="'+esc(h.title)+'"></span><span class="slide__tag"><small>'+esc(h.kicker)+'</small><b>'+esc(h.title)+'</b><i>'+esc(h.price)+'</i></span></a>';}).join('');
+  $('.hero__dots',S).innerHTML=A.hero.map(function(h,i){return '<button'+(i?'':' class="is-on"')+' aria-label="Слайд '+(i+1)+'"></button>';}).join('');
+  var cur=0,slides=$$('.slide',S),dots=$$('.hero__dots button',S),timer;
+  function show(i){cur=(i+slides.length)%slides.length;slides.forEach(function(s,k){s.classList.toggle('is-active',k===cur);});dots.forEach(function(d,k){d.classList.toggle('is-on',k===cur);});}
+  function auto(){clearInterval(timer);timer=setInterval(function(){show(cur+1);},6000);}
+  dots.forEach(function(d,k){d.onclick=function(e){e.preventDefault();show(k);auto();};});auto();
+
+  /* популярные категории слева */
+  $('[data-side]').innerHTML=A.popularCats.map(function(c,i){return '<a class="'+(i?'':'is-on')+'" href="'+u.href(c[2])+'"><span class="side__img"><img src="https://amfodent.ru/image/cache/'+c[1]+'" alt=""></span>'+esc(c[0])+ic('chevR','ico-sm')+'</a>';}).join('')+'<a class="side__all" href="catalog.html">Весь каталог'+ic('arrow','ico-sm')+'</a>';
+
+  /* товары */
+  var sets={sale:A.sale.slice(0,8),novelty:A.novelty.slice(0,8),units:A.category.products.filter(function(p){return u.num(p.price)>0;}).slice(0,8)};
+  function fill(k){$('[data-products]').innerHTML=sets[k].map(A.card).join('');A.sync();}
+  $$('[data-tab]').forEach(function(t){t.onclick=function(){$$('[data-tab]').forEach(function(x){x.classList.toggle('is-on',x===t);});fill(t.getAttribute('data-tab'));};});
+  fill('sale');
+  $('[data-novelty]').innerHTML=A.novelty.map(A.card).join('');A.rail($('[data-rail2]'));
+
+  /* баннеры производителей */
+  $('[data-promo-top]').innerHTML=A.promoTop.map(function(p){return '<a class="promo" href="'+p.href+'"><img src="'+p.img+'" alt="'+esc(p.title)+'"><span class="promo__cap"><small>'+esc(p.tag)+'</small>'+esc(p.title)+'</span></a>';}).join('');
+  $('[data-promo-mid]').innerHTML=A.promoMid.map(function(p){return '<a class="promo-mid" href="'+p.href+'"><img src="'+p.img+'" alt="'+esc(p.title)+'"></a>';}).join('');
+
+  /* весь каталог — иконки */
+  $('[data-catgrid]').innerHTML=A.cats.map(function(c,i){return '<a class="cg" href="'+A.catHref(c)+'"><span class="cg__ic">'+ic(A.catIc(i))+'</span><span>'+esc(c[0])+'</span></a>';}).join('');
+
+  /* производители */
+  var logos=[['Stern Weber','stern-weber-italiia_logo-250x80.jpg','oborudovanie-ot-stern-weber-italiya/'],['MyRay','myray_logo-250x80.jpg','oborudovanie-ot-myray-italiya/'],['Sirona','sirona-germaniia_logo-250x80.jpg','sirona-germaniya/'],['Ivoclar','ivoclar_standard_rgb-250x80.png','ivoclar/'],['DALAUDE','dalaude-250x80.jpg','dalaude/']];
+  $('[data-brands]').innerHTML=logos.map(function(l){return '<a class="blogo" href="'+u.href(l[2])+'" title="'+esc(l[0])+'"><img src="https://amfodent.ru/image/cache/catalog/manufacturers_logo/'+l[1]+'" alt="'+esc(l[0])+'"></a>';}).join('')+
+    A.brands.filter(function(b){return !/Stern Weber/.test(b);}).slice(0,6).map(function(b){return '<a class="bname" href="https://amfodent.ru/brands/">'+esc(b)+'</a>';}).join('');
+
+  /* блог */
+  var posts=A.blog.slice().sort(function(a,b){return (b.img?1:0)-(a.img?1:0);});
+  $('[data-posts]').innerHTML=posts.map(function(p,i){return '<a class="post'+(i?'':' post-big')+'" href="'+p.href+'"><span class="post__img">'+(p.img?'<img loading="lazy" src="'+p.img+'" alt="">':ic('doc'))+'</span><span class="post__b"><small>'+esc(p.date)+'</small><b>'+esc(p.title)+'</b><span class="post__x">'+esc(p.text)+'</span></span></a>';}).join('');
+
+  $('[data-seo-more]').onclick=function(){var s=$('[data-seo]');var o=s.classList.toggle('is-open');this.firstChild.textContent=o?'Свернуть ':'Читать дальше ';};
+});
+</script>
+</body>
+</html>

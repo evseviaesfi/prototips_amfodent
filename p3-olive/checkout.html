@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Оформление заказа — Амфодент · прототип 3</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header=""></div>
+<main class="wrap">
+  <nav class="crumbs"><a href="index.html">Главная</a><span class="sep">/</span><a href="cart.html">Корзина</a><span class="sep">/</span><span>Оформление заказа</span></nav>
+  <div class="page-title"><h1>Оформление заказа</h1><span>четыре коротких шага</span></div>
+  <form class="cart" data-form novalidate>
+    <div class="flow">
+      <section class="fstep is-open" data-step="1">
+        <button type="button" class="fstep__h"><span class="fstep__n">1</span><h3>Покупатель</h3><small data-sum1></small></button>
+        <div class="fstep__b">
+          <div class="segm" role="tablist"><button type="button" class="is-on" data-who="person">Частное лицо</button><button type="button" data-who="org">Клиника / организация</button></div>
+          <div class="fields">
+            <div class="field" data-org hidden><label>Название организации</label><input class="input" placeholder="ООО «Стоматология»"></div>
+            <div class="field" data-org hidden><label>ИНН</label><input class="input" inputmode="numeric" placeholder="10 или 12 цифр"></div>
+            <div class="field"><label>Имя <i>*</i></label><input class="input" name="name" required placeholder="Как к вам обращаться"><span class="err">Укажите имя</span></div>
+            <div class="field"><label>Телефон <i>*</i></label><input class="input" name="phone" type="tel" required placeholder="+7 (___) ___-__-__"><span class="err">Укажите телефон для связи</span></div>
+            <div class="field full"><label>Email <i>*</i></label><input class="input" name="email" type="email" required placeholder="you@clinic.ru"><span class="err">Нужен email, чтобы прислать счёт</span></div>
+          </div>
+          <button type="button" class="btn btn-olive fstep__next" data-next>Далее <span data-ic="arrow"></span></button>
+        </div>
+      </section>
+      <section class="fstep" data-step="2">
+        <button type="button" class="fstep__h"><span class="fstep__n">2</span><h3>Доставка</h3><small data-sum2></small></button>
+        <div class="fstep__b">
+          <div class="radios">
+            <label class="rcard"><input type="radio" name="ship" checked><i></i><div><b>Курьерская доставка</b><span>До двери, курьерской службой</span></div><span class="rprice">рассчитывается индивидуально</span></label>
+          </div>
+          <div class="fields" style="margin-top:14px">
+            <div class="field"><label>Город</label><input class="input" data-city placeholder="Например, Санкт-Петербург"></div>
+            <div class="field"><label>Адрес</label><input class="input" placeholder="Улица, дом, офис"></div>
+          </div>
+          <button type="button" class="btn btn-olive fstep__next" data-next>Далее <span data-ic="arrow"></span></button>
+        </div>
+      </section>
+      <section class="fstep" data-step="3">
+        <button type="button" class="fstep__h"><span class="fstep__n">3</span><h3>Оплата</h3><small data-sum3></small></button>
+        <div class="fstep__b">
+          <div class="radios">
+            <label class="rcard"><input type="radio" name="pay" checked><i></i><div><b>Безналичный перевод</b><span>Выставим счёт после подтверждения заказа</span></div></label>
+            <label class="rcard is-dis"><input type="radio" name="pay" disabled><i></i><div><b>Наличными при получении</b><span>Недоступно при курьерской доставке. Оплата наличными возможна только в Санкт-Петербурге.</span></div></label>
+          </div>
+          <button type="button" class="btn btn-olive fstep__next" data-next>Далее <span data-ic="arrow"></span></button>
+        </div>
+      </section>
+      <section class="fstep" data-step="4">
+        <button type="button" class="fstep__h"><span class="fstep__n">4</span><h3>Комментарий</h3><small>необязательно</small></button>
+        <div class="fstep__b">
+          <textarea class="input" placeholder="Удобное время звонка, реквизиты, пожелания по комплектации"></textarea>
+        </div>
+      </section>
+    </div>
+    <aside class="receipt">
+      <h3>Ваш заказ</h3><div class="receipt__sub">Амфодент · Санкт-Петербург</div>
+      <div class="mini-items" data-mini></div>
+      <div class="srow"><span data-items></span><b data-sum></b></div>
+      <div class="srow"><span>Доставка</span><b>индивидуально</b></div>
+      <div class="stotal"><span>Итого</span><b data-total></b></div>
+      <label class="check consent"><input type="checkbox" checked data-agree><i></i><span>Соглашаюсь с <a href="https://amfodent.ru/privacy/">политикой конфиденциальности</a> и даю согласие на обработку персональных данных</span></label>
+      <button class="btn btn-olive btn-lg btn-block" type="submit">Подтвердить заказ</button>
+      <a class="btn btn-line btn-block" href="cart.html"><span data-ic="chevL"></span>Вернуться в корзину</a>
+    </aside>
+  </form>
+</main>
+<div class="modal" data-modal-id="done"><div class="modal__box" style="text-align:center"><button class="ibtn modal__x" data-close aria-label="Закрыть"><span data-ic="x"></span></button><div class="ii" style="margin:0 auto 14px;width:64px;height:64px"><span data-ic="check"></span></div><h3>Заказ оформлен</h3><p>Это прототип — заказ никуда не отправлен. На рабочем сайте здесь будет номер заказа, а менеджер свяжется с вами для подтверждения.</p><a class="btn btn-olive btn-block" href="index.html">На главную</a></div></div>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,esc=u.esc;
+  var c=A.cart.get(),ids=Object.keys(c).filter(function(k){return A.byId[k];}),n=A.cart.count();
+  $('[data-mini]').innerHTML=ids.map(function(id){var p=A.byId[id];return '<div class="mini"><img src="'+esc(p.img)+'" alt=""><span>'+esc(p.name)+' <span style="color:var(--muted)">× '+c[id]+'</span></span><b>'+(u.num(p.price)?u.rub(u.num(p.price)*c[id]):'—')+'</b></div>';}).join('')||'<p style="color:var(--muted)">Корзина пуста</p>';
+  $('[data-items]').textContent='Товары ('+n+')';$('[data-sum]').textContent=u.rub(A.cart.total());$('[data-total]').textContent=u.rub(A.cart.total());
+
+  $$('[data-who]').forEach(function(b){b.onclick=function(){$$('[data-who]').forEach(function(x){x.classList.toggle('is-on',x===b);});$$('[data-org]').forEach(function(f){f.hidden=b.getAttribute('data-who')!=='org';});};});
+
+  /* шаги: открыт один, пройденные отмечены */
+  var steps=$$('.fstep');
+  function check(st){var ok=true;$$('[required]',st).forEach(function(i){var bad=!i.value.trim()||(i.type==='email'&&!/@/.test(i.value));i.classList.toggle('is-err',bad);i.parentNode.classList.toggle('is-err',bad);if(bad&&ok){i.focus();ok=false;}});return ok;}
+  function open(k){steps.forEach(function(s,i){s.classList.toggle('is-open',i===k);});var top=steps[k].getBoundingClientRect().top+scrollY-20;if(steps[k].getBoundingClientRect().top<0)window.scrollTo({top:top,behavior:'smooth'});}
+  function summary(){var nm=$('[name=name]').value.trim(),ph=$('[name=phone]').value.trim();$('[data-sum1]').textContent=nm?nm+(ph?', '+ph:''):'';$('[data-sum2]').textContent=steps[1].classList.contains('is-done')?'Курьер'+($('[data-city]').value.trim()?', '+$('[data-city]').value.trim():''):'';$('[data-sum3]').textContent=steps[2].classList.contains('is-done')?'Безналичный перевод':'';}
+  $$('[data-next]').forEach(function(b){b.onclick=function(){var st=b.closest('.fstep'),k=steps.indexOf(st);if(!check(st))return;st.classList.add('is-done');summary();open(k+1);};});
+  $$('.fstep__h').forEach(function(h,k){h.onclick=function(){if(k===0||steps[k-1].classList.contains('is-done'))open(k);};});
+
+  $('[data-form]').onsubmit=function(e){e.preventDefault();if(!check(steps[0])){open(0);check(steps[0]);return;}
+    if(!$('[data-agree]').checked){$('.consent').style.color='var(--brick)';return;}
+    steps.forEach(function(s){s.classList.add('is-done');});summary();A.openModal('done');};
+  $$('[required]').forEach(function(i){i.addEventListener('input',function(){i.classList.remove('is-err');i.parentNode.classList.remove('is-err');});});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Корзина — Амфодент · прототип 1</title>
+<link rel="icon" href="assets/img/emblem.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div data-header=""></div>
+<main class="wrap">
+  <nav class="crumbs"><a href="index.html">Главная</a><span data-ic="chevR"></span><span>Корзина</span></nav>
+  <div class="page-title"><h1>Корзина</h1><span data-cnt></span></div>
+  <div data-cart></div>
+  <section class="section">
+    <div class="section-head"><h2>Часто покупают вместе</h2></div>
+    <div class="rail" data-rail><button class="rail__btn prev" aria-label="Назад"></button><div class="rail__track" data-rec></div><button class="rail__btn next" aria-label="Вперёд"></button></div>
+  </section>
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+AMF.boot(function(A){
+  var u=A.util,$=u.$,$$=u.$$,ic=A.ic,esc=u.esc;
+  function w(n){return n%10===1&&n%100!==11?'товар':n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'товара':'товаров';}
+  function render(){
+    var c=A.cart.get(),ids=Object.keys(c).filter(function(k){return A.byId[k];}),n=A.cart.count(),box=$('[data-cart]');
+    $('[data-cnt]').textContent=n?n+' '+w(n):'';
+    if(!ids.length){box.innerHTML='<div class="cart-empty">'+ic('cart')+'<h2>В корзине пока пусто</h2><p>Загляните в каталог или воспользуйтесь поиском — подберём оборудование под ваш кабинет.</p><a class="btn btn-primary btn-lg" href="catalog.html">Перейти в каталог '+ic('arrow')+'</a></div>';return;}
+    var total=A.cart.total();
+    box.innerHTML='<div class="cart"><div class="cart__list"><div class="cart__head"><span>Товары в заказе</span><button class="link-arrow" data-clear style="color:var(--coral-600)">'+ic('trash')+'Очистить корзину</button></div>'+
+      ids.map(function(id){var p=A.byId[id],q=c[id],pr=u.num(p.price);return '<div class="citem"><a class="citem__img" href="'+A.purl(p)+'"><img src="'+esc(p.img)+'" alt=""></a><div><a class="citem__t" href="'+A.purl(p)+'">'+esc(p.name)+'</a><div class="citem__m"><span>Арт. '+esc(p.model)+'</span><span class="stock '+A.stockCls(p.stock)+'">'+esc(A.stockTxt(p.stock))+'</span><button class="link-arrow" style="font-size:13px;font-weight:500;color:var(--muted)" data-fav="'+id+'">'+ic('heart','ico-sm')+'В избранное</button></div></div>'+
+        '<div class="qty qty-sm"><button data-dq="'+id+'" data-d="-1" aria-label="Меньше">'+ic('minus')+'</button><input value="'+q+'" data-qi="'+id+'" inputmode="numeric" aria-label="Количество"><button data-dq="'+id+'" data-d="1" aria-label="Больше">'+ic('plus')+'</button></div>'+
+        '<div class="citem__sum"><b>'+(pr?u.rub(pr*q):'по запросу')+'</b>'+(q>1&&pr?'<small>'+esc(p.price)+' × '+q+'</small>':(p.old?'<small><s>'+esc(p.old)+'</s></small>':''))+'</div>'+
+        '<button class="icon-btn citem__x" data-rmv="'+id+'" aria-label="Удалить">'+ic('x')+'</button></div>';}).join('')+
+      '</div><aside class="summary"><h3>Ваш заказ</h3><div class="srow"><span>Товары ('+n+')</span><b>'+u.rub(total)+'</b></div><div class="srow"><span>Доставка</span><b>рассчитывается<br>индивидуально</b></div>'+
+      '<div class="coupon"><input placeholder="Промокод или сертификат" aria-label="Промокод"><button class="btn btn-soft" data-proto>Применить</button></div>'+
+      '<div class="stotal"><span>Итого</span><b>'+u.rub(total)+'</b></div><a class="btn btn-accent btn-lg btn-block" href="checkout.html">Оформить заказ '+ic('arrow')+'</a><button class="btn btn-outline btn-block" style="margin-top:10px" data-modal="callback">'+ic('phone')+'Быстрый заказ по телефону</button><p class="note">Менеджер свяжется с вами, подтвердит наличие, сроки и стоимость доставки.</p></aside></div>';
+  }
+  document.addEventListener('click',function(e){var b=e.target.closest('[data-dq],[data-rmv],[data-clear]');if(!b)return;var c=A.cart.get();
+    if(b.hasAttribute('data-clear'))A.cart.clear();else if(b.hasAttribute('data-rmv'))A.cart.set(b.getAttribute('data-rmv'),0);else{var id=b.getAttribute('data-dq');A.cart.set(id,Math.max(1,(c[id]||1)+(+b.getAttribute('data-d'))));}render();A.sync();});
+  document.addEventListener('change',function(e){var i=e.target.closest('[data-qi]');if(!i)return;A.cart.set(i.getAttribute('data-qi'),Math.max(1,parseInt(i.value,10)||1));render();A.sync();});
+  document.addEventListener('amf:cart',function(){if(!render._lock){render._lock=1;render();render._lock=0;}});
+  render();
+  $('[data-rec]').innerHTML=A.sale.concat(A.novelty.slice(0,4)).map(A.card).join('');
+  $$('.rail__btn.prev').forEach(function(b){b.innerHTML=ic('chevL');});$$('.rail__btn.next').forEach(function(b){b.innerHTML=ic('chevR');});A.rail($('[data-rail]'));
+  $$('[data-ic]').forEach(function(e){if(e.className)e.innerHTML=ic(e.getAttribute('data-ic'));else e.outerHTML=ic(e.getAttribute('data-ic'));});
+});
+</script>
+</body>
+</html>
