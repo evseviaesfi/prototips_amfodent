@@ -109,7 +109,7 @@ h1 .u{box-shadow:inset 0 -0.34em var(--volt-s)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:.15s}
 .cover{position:relative;background:#eef2f6;border-bottom:1px solid var(--line-2);height:210px}
-.cover img{width:100%;height:100%;object-fit:cover}
+.cover img{width:100%;height:100%;object-fit:contain}
 .cover .cvtag{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:5px;background:var(--volt);color:#fff}
 .cover .cvtag.dark{background:rgba(16,22,29,.85);color:#cfd8e0;border:1px solid rgba(255,255,255,.18)}
 .cbody{padding:16px 18px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
@@ -429,7 +429,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="nos ti" data-set="08" data-type="Турбинный · без подсветки"
         data-spec="Турбинный · NSK-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="13 048 ₽" data-analog="NSK S-Max M900" data-cpl="MD-2C-N0">
-        <div class="cover"><span class="cvtag dark">Без света</span><img src="img/sets/08/00_boxed.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag dark">Без света</span><img src="img/sets/08/08_kit.jpg" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18NN M2-Ti</div>
           <div class="spec">Турбинный · <b>NSK-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -459,7 +459,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti" data-set="10" data-type="Турбинный · LED фиброоптика"
         data-spec="Турбинный · Sirona-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="Sirona T2 Boost S" data-cpl="MD-2C-S2">
-        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/10/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/10/09_kit.jpg" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KS LED M2-Ti</div>
           <div class="spec">Турбинный · <b>Sirona-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -718,7 +718,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
   </div>
 </footer>
 
-<script type="application/json" id="photoSets">{"10":{"dir":"img/sets/10","files":["01_general.jpg"]},"11":{"dir":"img/sets/11","files":["01_kit.jpg","06_coupling_side.jpg"]},"12":{"dir":"img/sets/12","files":["01_kit.jpg","06_coupling_side.jpg"]},"13":{"dir":"img/sets/13","files":["01_kit.jpg"]},"01":{"dir":"img/sets/01","files":["05_kit.jpg","01_general.jpg"]},"02":{"dir":"img/sets/02","files":["05_kit.jpg"]},"03":{"dir":"img/sets/03","files":["08_kit.jpg","01_general.jpg"]},"04":{"dir":"img/sets/04","files":["06_kit.jpg","03_head_back.jpg"]},"05":{"dir":"img/sets/05","files":["06_kit.jpg","01_general.jpg"]},"06":{"dir":"img/sets/06","files":["07_kit.jpg","05_coupling_ports.jpg"]},"07":{"dir":"img/sets/07","files":["08_kit.jpg"]},"08":{"dir":"img/sets/08","files":["00_boxed.jpg"]},"09":{"dir":"img/sets/09","files":["07_kit.jpg","04_coupling_ports.jpg"]}}</script>
+<script type="application/json" id="photoSets">{"10":{"dir":"img/sets/10","files":["09_kit.jpg","01_general.jpg"]},"11":{"dir":"img/sets/11","files":["01_kit.jpg","06_coupling_side.jpg"]},"12":{"dir":"img/sets/12","files":["01_kit.jpg","06_coupling_side.jpg"]},"13":{"dir":"img/sets/13","files":["01_kit.jpg"]},"01":{"dir":"img/sets/01","files":["05_kit.jpg","01_general.jpg"]},"02":{"dir":"img/sets/02","files":["05_kit.jpg"]},"03":{"dir":"img/sets/03","files":["08_kit.jpg","01_general.jpg"]},"04":{"dir":"img/sets/04","files":["06_kit.jpg","03_head_back.jpg"]},"05":{"dir":"img/sets/05","files":["06_kit.jpg","01_general.jpg"]},"06":{"dir":"img/sets/06","files":["07_kit.jpg","05_coupling_ports.jpg"]},"07":{"dir":"img/sets/07","files":["08_kit.jpg"]},"08":{"dir":"img/sets/08","files":["08_kit.jpg"]},"09":{"dir":"img/sets/09","files":["07_kit.jpg","04_coupling_ports.jpg"]}}</script>
 <script src="catalog.js?v=6" defer></script>
 </body>
 </html>
