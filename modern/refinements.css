@@ -30,10 +30,9 @@ button { color: inherit; }
 .nav-links { gap: clamp(12px, 1.3vw, 20px); margin-left: auto; white-space: nowrap; }
 .nav-cta { flex: none; white-space: nowrap; }
 .lockup, .status-lockup { display: inline-flex; align-items: center; gap: 10px; flex: none; }
-.lockup .modern-logo { width: 116px; height: auto; }
-.lockup .amfo-logo { width: 78px; height: auto; }
-.amfo-logo, .modern-logo { mix-blend-mode: multiply; }
-.lockup .x, .status-lockup .x { color: var(--steel); font-size: 16px; }
+.lockup .modern-logo { width: 126px; height: auto; }
+.amfo-logo { mix-blend-mode: multiply; }
+.status-lockup .x { color: var(--steel); font-size: 16px; }
 .mobile-nav { display: none; position: relative; margin-left: auto; }
 .mobile-nav summary { cursor: pointer; font-size: 13px; padding: 10px 3px; }
 .mobile-nav nav { position: absolute; right: 0; top: calc(100% + 10px); width: 180px; padding: 6px; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
@@ -55,7 +54,7 @@ button { color: inherit; }
 .statusline .item svg { color: var(--volt); }
 .statusline .status-lockup { gap: 6px; }
 .statusline .status-lockup .modern-logo { width: 71px; height: auto; }
-.statusline .status-lockup .amfo-logo { width: 50px; height: auto; }
+.statusline .status-lockup .amfo-logo { width: 66px; height: auto; }
 .statusline a, .contact a, footer a { text-decoration: underline; text-underline-offset: 3px; }
 .statusline strong { color: var(--ink); font-weight: 600; }
 .card[hidden] { display: none; }
@@ -80,9 +79,11 @@ button { color: inherit; }
 .contact { font-style: normal; justify-items: start; gap: 6px; }
 .contact strong { margin-bottom: 4px; }
 .f-grid .btn { justify-content: center; }
-.foot .lockup { width: max-content; }
-.foot .lockup .modern-logo { width: 105px; }
-.foot .lockup .amfo-logo { width: 69px; }
+.foot { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 18px 28px; }
+.foot-company strong { display: block; margin-bottom: 4px; color: var(--ink); font-size: 15px; }
+.foot-contact { justify-self: end; font-style: normal; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 6px; }
+.foot-legal { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 14px; }
 
 .gallery-open { overflow: hidden; }
 dialog.overlay {
@@ -130,10 +131,9 @@ dialog.overlay::backdrop { background: rgb(11 15 20 / .64); }
   section { padding: 48px 0; }
   .container { padding-inline: 16px; }
   .nav { gap: 7px; height: 62px; }
-  .nav .lockup { gap: 5px; }
-  .nav .modern-logo { width: 77px; }
-  .nav .amfo-logo { width: 52px; }
-  .nav .x { font-size: 12px; }
+  .nav .modern-logo { width: 92px; }
+  .foot { grid-template-columns: 1fr; }
+  .foot-contact { justify-self: start; }
   .nav-cta .btn { padding: 7px 8px; font-size: 12px; }
   .mobile-nav summary { font-size: 12px; }
   .statusline .item { grid-template-columns: auto minmax(0, 1fr); }
