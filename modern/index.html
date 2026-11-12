@@ -237,7 +237,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
   .kpi{border-top:1px solid var(--line)}
 }
 </style>
-<link rel="stylesheet" href="refinements.css?v=4">
+<link rel="stylesheet" href="refinements.css?v=5">
 </head>
 <body>
 
@@ -296,15 +296,8 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
 
 <!-- ═══ Статус-лента ═══ -->
 <div class="statusline">
-  <svg class="logo-filter" width="0" height="0" aria-hidden="true" focusable="false">
-    <filter id="amfo-cutout" color-interpolation-filters="sRGB">
-      <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -.3333 -.3333 -.3333 0 1" result="ink"/>
-      <feComponentTransfer in="ink" result="matte"><feFuncA type="linear" slope="7" intercept="-1.4"/></feComponentTransfer>
-      <feComposite in="SourceGraphic" in2="matte" operator="in"/>
-    </filter>
-  </svg>
   <div class="container">
-    <div class="item"><div class="status-lockup"><img class="modern-logo" src="img/modern-wordmark.png" width="227" height="45" alt="MODERN"><img class="amfo-logo" src="img/amfodent-mark.png" width="289" height="139" alt="Амфодент"></div><strong>Единственный официальный представитель бренда в РФ</strong></div>
+    <div class="item"><div class="status-lockup"><img class="modern-logo" src="img/modern-wordmark.png" width="227" height="45" alt="MODERN"><img class="amfo-logo" src="img/amfodent-status.png" width="289" height="139" alt="Амфодент"></div><strong>Единственный официальный представитель бренда в РФ</strong></div>
     <a href="#docs">Руководства на русском языке</a>
     <a href="#service">Гарантия и сервис</a>
   </div>
@@ -356,7 +349,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti" data-set="06" data-type="Турбинный · LED фиброоптика"
         data-spec="Турбинный · KaVo-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 250+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="KAVO SMARTtorque S619 L" data-cpl="MD-2C-K2">
-        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/06/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/06/01_general.jpg" style="--photo-y:9.6%;--photo-clip:polygon(0% 0%, 100% 0%, 100% 56%, 0% 56%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KK LED M2-Ti</div>
           <div class="spec">Турбинный · <b>KaVo-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -371,7 +364,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti surg" data-set="03" data-type="Хирургический 45° · LED фиброоптика"
         data-spec="Хирургический 45° · KaVo-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · давление 250+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="SURGtorque LUX S459 L" data-cpl="MD-2C-K2">
-        <div class="cover"><span class="cvtag">Хирургия 45°</span><img src="img/sets/03/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">Хирургия 45°</span><img src="img/sets/03/01_general.jpg" style="--photo-y:7.9%;--photo-clip:polygon(0% 0%, 100% 0%, 100% 55%, 0% 55%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KK LED M45-Ti</div>
           <div class="spec">Хирургический 45° · <b>KaVo-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин</div>
@@ -386,7 +379,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="nos ti" data-set="12" data-type="Турбинный · без подсветки"
         data-spec="Турбинный · KaVo-совместимый · титан · головка Ø9,2×11,2 мм · 350–380 тыс. об/мин · 3-точечный распыл · давление 250+10% кПа · бор Ø1,6 мм"
         data-price="14 996 ₽" data-analog="KAVO SMARTtorque S619 C" data-cpl="MD-2C-K0">
-        <div class="cover"><span class="cvtag dark">Без света</span><img src="img/sets/12/01_kit.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag dark">Без света</span><img src="img/sets/12/01_catalogue.jpg" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KK M2-Ti</div>
           <div class="spec">Турбинный · <b>KaVo-совместимый</b> · титан · Ø9,2×11,2 · 350–380 тыс. об/мин · 3-точечный распыл</div>
@@ -401,7 +394,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti" data-set="11" data-type="Турбинный · LED фиброоптика"
         data-spec="Турбинный · NSK-совместимый · титан · головка Ø9,2×11 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 250+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="NSK S-Max M600L" data-cpl="MD-2C-N2">
-        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/11/01_kit.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/11/01_catalogue.jpg" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18NN LED M2-Ti</div>
           <div class="spec">Турбинный · <b>NSK-совместимый</b> · титан · Ø9,2×11 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -416,7 +409,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti surg" data-set="07" data-type="Хирургический 45° · LED фиброоптика"
         data-spec="Хирургический 45° · NSK-совместимый · титан · головка Ø11,2×13 мм · 350–380 тыс. об/мин · давление 250+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="NSK Ti-Max X450" data-cpl="MD-2C-N1">
-        <div class="cover"><span class="cvtag">Хирургия 45°</span><img src="img/sets/07/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">Хирургия 45°</span><img src="img/sets/07/01_general.jpg" style="--photo-y:10%;--photo-clip:polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 55% 65%, 18% 48%, 0% 48%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18NN LED M45-Ti</div>
           <div class="spec">Хирургический 45° · <b>NSK-совместимый</b> · титан · Ø11,2×13 · 350–380 тыс. об/мин</div>
@@ -431,7 +424,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="nos ti" data-set="08" data-type="Турбинный · без подсветки"
         data-spec="Турбинный · NSK-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="13 048 ₽" data-analog="NSK S-Max M900" data-cpl="MD-2C-N0">
-        <div class="cover"><span class="cvtag dark">Без света</span><img src="img/sets/08/01_general.jpg" data-crop="upper" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag dark">Без света</span><img src="img/sets/08/01_general.jpg" style="--photo-y:15.8%;--photo-clip:polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18NN M2-Ti</div>
           <div class="spec">Турбинный · <b>NSK-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -446,7 +439,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti" data-set="13" data-type="Турбинный · LED фиброоптика"
         data-spec="Турбинный · W&H-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="W&H Alegra TE-98 LQ" data-cpl="MD-2C-W2">
-        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/13/01_kit.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/13/00_general.jpg" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KW LED M2-Ti</div>
           <div class="spec">Турбинный · <b>W&H-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -461,7 +454,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti" data-set="10" data-type="Турбинный · LED фиброоптика"
         data-spec="Турбинный · Sirona-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="Sirona T2 Boost S" data-cpl="MD-2C-S2">
-        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/10/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/10/01_general.jpg" style="--photo-y:10.8%;--photo-clip:polygon(0% 0%, 100% 0%, 100% 56%, 0% 56%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KS LED M2-Ti</div>
           <div class="spec">Турбинный · <b>Sirona-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -476,7 +469,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led ti" data-set="09" data-type="Турбинный · LED фиброоптика"
         data-spec="Турбинный · Bien-Air-совместимый · титан · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · 4-точечный распыл · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="21 812 ₽" data-analog="Bien-Air Bora L" data-cpl="MD-2C-B2">
-        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/09/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED · фибра</span><img src="img/sets/09/01_general.jpg" style="--photo-y:7.1%;--photo-clip:polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 58%, 29% 47%, 13% 46%, 0% 46%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR-18KB LED M2-Ti</div>
           <div class="spec">Турбинный · <b>Bien-Air-совместимый</b> · титан · Ø12,5×13,6 · 350–380 тыс. об/мин · 4-точечный распыл</div>
@@ -491,7 +484,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led st" data-set="05" data-type="Турбинный · LED-генератор 6000K"
         data-spec="Турбинный с LED-генератором 6000K · нержавеющая сталь 316 · головка Ø12,5×13,6 мм · 350–380 тыс. об/мин · давление 280+10% кПа · бор Ø1,6 мм"
         data-price="8 958 ₽" data-analog="Турбинный с генератором TX-164" data-cpl="Универсальная посадка">
-        <div class="cover"><span class="cvtag">LED-генератор</span><img src="img/sets/05/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">LED-генератор</span><img src="img/sets/05/01_general.jpg" style="--photo-y:2.1%" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR ZL4(4) M88-ST</div>
           <div class="spec">Турбинный с LED-генератором 6000K · сталь 316 · Ø12,5×13,6 · 350–380 тыс. об/мин</div>
@@ -506,7 +499,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
       <article class="card" data-tags="led st angle" data-set="04" data-type="Угловой повышающий 1:5 · LED"
         data-spec="Угловой повышающий 1:5 · LED · нержавеющая сталь · бор Ø2,35 мм · до 200 000 об/мин · 4-точечный распыл · внешнееорошение"
         data-price="23 370 ₽" data-analog="Угловой 1:5 со светом TX-414-71" data-cpl="Универсальная посадка">
-        <div class="cover"><span class="cvtag">1:5 · повышающий</span><img src="img/sets/04/01_general.jpg" loading="lazy" alt=""></div>
+        <div class="cover"><span class="cvtag">1:5 · повышающий</span><img src="img/sets/04/01_general.jpg" style="--photo-clip:polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 67%, 15% 43%, 0% 43%)" loading="lazy" alt=""></div>
         <div class="cbody">
           <div class="sku">HSTH-AIR ZL6(4) M77-ST</div>
           <div class="spec">Угловой повышающий 1:5 · LED · сталь · бор Ø2,35 · до 200 000 об/мин · 4-точечный распыл</div>
@@ -718,7 +711,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
   </div>
 </footer>
 
-<script type="application/json" id="photoSets">{"10":{"dir":"img/sets/10","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg","09_kit.jpg"],"cover":"01_general.jpg","softEdges":{"04_socket.jpg":"top left","08_marking.jpg":"left"}},"11":{"dir":"img/sets/11","files":["01_kit.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_open.jpg","08_marking.jpg"],"cover":"01_kit.jpg","softEdges":{"03_head_back.jpg":"top","08_marking.jpg":"left"}},"12":{"dir":"img/sets/12","files":["01_kit.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg"],"cover":"01_kit.jpg","softEdges":{"02_head_front.jpg":"top","03_head_back.jpg":"top right","08_marking.jpg":"left"}},"13":{"dir":"img/sets/13","files":["01_kit.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg"],"cover":"01_kit.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"right","08_marking.jpg":"right left"}},"01":{"dir":"img/sets/01","files":["01_general.jpg","02_head_front.jpg","03_connection.jpg","04_marking.jpg","05_kit.jpg"],"cover":"01_general.jpg"},"02":{"dir":"img/sets/02","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_marking.jpg","05_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"right bottom","04_marking.jpg":"left"}},"03":{"dir":"img/sets/03","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_marking.jpg","08_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"bottom","04_socket.jpg":"left","05_coupling_ports.jpg":"left","07_marking.jpg":"top left"}},"04":{"dir":"img/sets/04","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_connection.jpg","05_marking.jpg","06_kit.jpg"],"cover":"01_general.jpg","softEdges":{"04_connection.jpg":"right","05_marking.jpg":"top"}},"05":{"dir":"img/sets/05","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_connection.jpg","05_marking.jpg","06_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"bottom","05_marking.jpg":"top"}},"06":{"dir":"img/sets/06","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right bottom","03_head_back.jpg":"top left","04_socket.jpg":"top left"}},"07":{"dir":"img/sets/07","files":["01_general.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_marking.jpg","08_kit.jpg"],"cover":"01_general.jpg","softEdges":{"03_head_back.jpg":"right bottom","07_marking.jpg":"right left"}},"08":{"dir":"img/sets/08","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","07_marking_original.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"top","03_head_back.jpg":"top right","07_marking_original.jpg":"right left"},"crop":{"01_general.jpg":"upper"}},"09":{"dir":"img/sets/09","files":["01_general.jpg","02_head_front.jpg","04_coupling_ports.jpg","05_coupling_side.jpg","06_marking.jpg","07_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"top","06_marking.jpg":"right left"}}}</script>
-<script src="catalog.js?v=4" defer></script>
+<script type="application/json" id="photoSets">{"10":{"dir":"img/sets/10","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg","09_kit.jpg"],"cover":"01_general.jpg","softEdges":{"08_marking.jpg":"left"},"placement":{"01_general.jpg":{"y":10.8,"clip":"polygon(0% 0%, 100% 0%, 100% 56%, 0% 56%)"},"08_marking.jpg":{"x":14.7,"y":-2.5}}},"11":{"dir":"img/sets/11","files":["01_catalogue.jpg","01_kit.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_open.jpg","08_marking.jpg"],"cover":"01_catalogue.jpg","softEdges":{"03_head_back.jpg":"top","08_marking.jpg":"left"},"placement":{"03_head_back.jpg":{"x":-11.4,"y":24.6},"08_marking.jpg":{"x":8.1,"y":-2.5}}},"12":{"dir":"img/sets/12","files":["01_catalogue.jpg","01_kit.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg"],"cover":"01_catalogue.jpg","softEdges":{"02_head_front.jpg":"top","03_head_back.jpg":"top right","08_marking.jpg":"left"},"placement":{"02_head_front.jpg":{"y":28},"03_head_back.jpg":{"x":-12.5,"y":27.9},"08_marking.jpg":{"x":11.7}}},"13":{"dir":"img/sets/13","files":["00_general.jpg","01_kit.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg"],"cover":"00_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"right"},"placement":{"02_head_front.jpg":{"x":-17.2},"03_head_back.jpg":{"x":-21.9}}},"01":{"dir":"img/sets/01","files":["01_general.jpg","02_head_front.jpg","03_connection.jpg","04_marking.jpg","05_kit.jpg"],"cover":"01_general.jpg","placement":{"02_head_front.jpg":{"x":-6.7,"y":-3.3},"03_connection.jpg":{"x":-14.4,"y":-6.2},"04_marking.jpg":{"x":2.8}}},"02":{"dir":"img/sets/02","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_marking.jpg","05_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"right bottom","04_marking.jpg":"left"},"placement":{"02_head_front.jpg":{"x":-9.7,"y":-5.8},"03_head_back.jpg":{"x":-8.9,"y":-11.3},"04_marking.jpg":{"x":3.1}}},"03":{"dir":"img/sets/03","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_marking.jpg","08_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"bottom","05_coupling_ports.jpg":"left","07_marking.jpg":"top left"},"placement":{"01_general.jpg":{"y":7.9,"clip":"polygon(0% 0%, 100% 0%, 100% 55%, 0% 55%)"},"02_head_front.jpg":{"x":-9.2,"y":-10.8},"03_head_back.jpg":{"x":-12.2,"y":-12.5},"05_coupling_ports.jpg":{"x":5.6,"y":-2.1},"07_marking.jpg":{"x":5,"y":6.2},"08_kit.jpg":{"x":4.7}}},"04":{"dir":"img/sets/04","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_connection.jpg","05_marking.jpg","06_kit.jpg"],"cover":"01_general.jpg","softEdges":{"04_connection.jpg":"right","05_marking.jpg":"top"},"placement":{"01_general.jpg":{"clip":"polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 67%, 15% 43%, 0% 43%)"},"02_head_front.jpg":{"x":-4.7,"y":-5},"03_head_back.jpg":{"x":6.1,"y":2.1},"04_connection.jpg":{"x":-28},"05_marking.jpg":{"x":3.6,"y":5.4}}},"05":{"dir":"img/sets/05","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_connection.jpg","05_marking.jpg","06_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right","03_head_back.jpg":"bottom","05_marking.jpg":"top"},"placement":{"01_general.jpg":{"y":2.1},"02_head_front.jpg":{"x":-6.1,"y":-7.1},"03_head_back.jpg":{"x":-8.1,"y":-4.6},"04_connection.jpg":{"y":2.1},"05_marking.jpg":{"x":6.7}}},"06":{"dir":"img/sets/06","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"right bottom","03_head_back.jpg":"top left"},"placement":{"01_general.jpg":{"y":9.6,"clip":"polygon(0% 0%, 100% 0%, 100% 56%, 0% 56%)"},"02_head_front.jpg":{"x":-8.9,"y":-3.3},"03_head_back.jpg":{"x":11.1,"y":5.4},"07_kit.jpg":{"x":2.5}}},"07":{"dir":"img/sets/07","files":["01_general.jpg","03_head_back.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","08_kit.jpg"],"cover":"01_general.jpg","softEdges":{"03_head_back.jpg":"right bottom"},"placement":{"01_general.jpg":{"y":10,"clip":"polygon(0% 0%, 100% 0%, 100% 100%, 55% 100%, 55% 65%, 18% 48%, 0% 48%)"},"03_head_back.jpg":{"x":-18.6,"y":-16.2}}},"08":{"dir":"img/sets/08","hideOriginal":["01_general.jpg"],"files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"top","03_head_back.jpg":"top right"},"placement":{"01_general.jpg":{"y":15.8,"clip":"polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%)"},"02_head_front.jpg":{"y":22.1},"03_head_back.jpg":{"x":-8.6,"y":13.8}}},"09":{"dir":"img/sets/09","files":["01_general.jpg","02_head_front.jpg","04_coupling_ports.jpg","05_coupling_side.jpg","07_kit.jpg"],"cover":"01_general.jpg","softEdges":{"02_head_front.jpg":"top"},"placement":{"01_general.jpg":{"y":7.1,"clip":"polygon(0% 0%, 100% 0%, 100% 100%, 50% 100%, 50% 58%, 29% 47%, 13% 46%, 0% 46%)"},"02_head_front.jpg":{"y":25.8}}}}</script>
+<script src="catalog.js?v=5" defer></script>
 </body>
 </html>

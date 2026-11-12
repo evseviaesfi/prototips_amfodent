@@ -96,8 +96,7 @@ footer :focus-visible { outline-color: #90c8ff; }
 .statusline .item { display: flex; flex-wrap: wrap; gap: 10px 22px; flex: 1 1 680px; }
 .statusline .status-lockup { gap: 18px; }
 .statusline .status-lockup .modern-logo { width: 93px; height: auto; filter: invert(1); }
-.statusline .status-lockup .amfo-logo { width: 89px; height: auto; filter: url(#amfo-cutout); }
-.logo-filter { position: absolute; pointer-events: none; }
+.statusline .status-lockup .amfo-logo { width: 103px; height: auto; }
 .statusline a, .contact a, footer a { text-decoration: underline; text-underline-offset: 3px; }
 .statusline a { color: #a9d1ff; }
 .statusline :focus-visible { outline-color: #90c8ff; }
@@ -113,8 +112,20 @@ footer :focus-visible { outline-color: #90c8ff; }
 .card { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
 .card[hidden] { display: none; }
 .cover { background: #fafafa; overflow: hidden; isolation: isolate; }
-.cover img { object-fit: contain; mix-blend-mode: multiply; transition: transform .25s ease; }
-img[data-crop="upper"] { clip-path: inset(0 0 50%); translate: 0 16%; }
+.cover img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(100%, 315px);
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  clip-path: var(--photo-clip, none);
+  translate: calc(-50% + var(--photo-x, 0%)) calc(-50% + var(--photo-y, 0%));
+  mix-blend-mode: multiply;
+  transition: transform .25s ease;
+}
+.card[data-set="04"] .cover img { scale: .88; }
 .cover .cvtag { z-index: 1; }
 .cover::after {
   content: "";
@@ -247,13 +258,25 @@ dialog.overlay::backdrop { background: rgb(11 15 20 / .64); }
     linear-gradient(to bottom, transparent, #000 var(--fade-top), #000 calc(100% - var(--fade-bottom)), transparent);
   mask-composite: intersect;
 }
-.m-big img { width: 100%; height: 100%; max-height: none; object-fit: contain; }
+.m-big img {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  object-fit: contain;
+  clip-path: var(--photo-clip, none);
+  translate: var(--photo-x, 0%) var(--photo-y, 0%);
+  scale: .92;
+}
 img[data-soft-edges~="left"] { --fade-left: var(--soft-edge); }
 img[data-soft-edges~="right"] { --fade-right: var(--soft-edge); }
 img[data-soft-edges~="top"] { --fade-top: var(--soft-edge); }
 img[data-soft-edges~="bottom"] { --fade-bottom: var(--soft-edge); }
+.cover img[src$="/01_catalogue.jpg"], .m-big img[src$="/01_catalogue.jpg"], .m-th img[src$="/01_catalogue.jpg"] {
+  mask-image: linear-gradient(to bottom, transparent 18%, #000 32%, #000 68%, transparent 82%);
+}
 .m-nav, .m-count { z-index: 1; }
-.m-th img { object-fit: contain; }
+.m-th { display: grid; place-items: center; }
+.m-th img { height: auto; aspect-ratio: 3 / 2; object-fit: contain; clip-path: var(--photo-clip, none); translate: var(--photo-x, 0%) var(--photo-y, 0%); }
 .m-cap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 12px; }
 .m-sku { margin: 0; overflow-wrap: anywhere; }
 .m-spec { line-height: 1.55; }

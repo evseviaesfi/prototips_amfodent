@@ -27,6 +27,7 @@ const priceForm = document.getElementById('priceForm');
 
 const captions = {
   general: 'Общий вид',
+  catalogue: 'Общий вид',
   head_front: 'Головка спереди',
   head_back: 'Головка сзади',
   socket: 'Посадочное гнездо',
@@ -43,6 +44,12 @@ const captions = {
 let photos = [];
 let activePhoto = 0;
 let activeModel = '';
+
+function positionPhoto(image, placement = {}) {
+  image.style.setProperty('--photo-x', (placement.x || 0) + '%');
+  image.style.setProperty('--photo-y', (placement.y || 0) + '%');
+  image.style.setProperty('--photo-clip', placement.clip || 'none');
+}
 
 for (const filter of filters) {
   filter.addEventListener('click', () => {
@@ -66,9 +73,9 @@ function showPhoto(index) {
   galleryImage.src = photo.url;
   galleryImage.alt = activeModel + ' — ' + photo.caption.toLowerCase();
   galleryImage.dataset.softEdges = photo.softEdges;
-  galleryImage.dataset.crop = photo.crop;
-  imageLink.hidden = Boolean(photo.crop);
-  if (photo.crop) {
+  positionPhoto(galleryImage, photo.placement);
+  imageLink.hidden = photo.hideOriginal;
+  if (imageLink.hidden) {
     imageLink.removeAttribute('href');
   } else {
     imageLink.href = photo.url;
@@ -89,7 +96,8 @@ function openCard(card) {
     url: set.dir + '/' + file,
     caption: captions[file.slice(3, -4)] || 'Детали модели',
     softEdges: set.softEdges?.[file] || '',
-    crop: set.crop?.[file] || ''
+    placement: set.placement?.[file],
+    hideOriginal: set.hideOriginal?.includes(file) || false
   }));
 
   document.getElementById('mType').textContent = card.dataset.type;
@@ -107,7 +115,7 @@ function openCard(card) {
     const image = document.createElement('img');
     image.src = photo.url;
     image.alt = '';
-    image.dataset.crop = photo.crop;
+    positionPhoto(image, photo.placement);
     button.append(image);
     button.addEventListener('click', () => showPhoto(index));
     thumbnailList.append(button);
