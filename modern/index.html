@@ -42,9 +42,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdro
 /* ══════════ Кнопки ══════════ */
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r);padding:12px 22px;font-weight:600;font-size:14.5px;border:1px solid transparent;cursor:pointer;transition:.15s}
 .btn-volt{background:var(--volt);color:#fff}
-.btn-volt:hover{background:var(--volt-d)}
 .btn-out{border-color:var(--line);color:var(--ink);background:#fff}
-.btn-out:hover{border-color:var(--volt);color:var(--volt)}
 .btn-sm{padding:9px 16px;font-size:13.5px}
 .tlink{color:var(--volt);font-weight:600;font-size:13.5px;border-bottom:1px solid transparent}
 .tlink:hover{border-color:var(--volt)}
@@ -99,7 +97,6 @@ h1 .u{box-shadow:inset 0 -0.34em var(--volt-s)}
 .count{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--faint)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:.15s}
-.card:hover{border-color:var(--volt-line);box-shadow:0 10px 28px -18px rgba(16,22,29,.28)}
 .cover{position:relative;background:#eef2f6;border-bottom:1px solid var(--line-2);height:210px}
 .cover img{width:100%;height:100%;object-fit:cover}
 .cover .cvtag{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:5px;background:var(--volt);color:#fff}
@@ -229,7 +226,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
   .kpi{border-top:1px solid var(--line)}
 }
 </style>
-<link rel="stylesheet" href="refinements.css">
+<link rel="stylesheet" href="refinements.css?v=3">
 </head>
 <body>
 
@@ -287,7 +284,7 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
 <!-- ═══ Статус-лента ═══ -->
 <div class="statusline">
   <div class="container">
-    <div class="item"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3.2 3L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="status-lockup"><img class="modern-logo" src="img/modern-wordmark.png" width="227" height="45" alt="MODERN"><span class="x" aria-hidden="true">×</span><img class="amfo-logo" src="img/amfodent-mark.png" width="289" height="139" alt="Амфодент"></div><strong>Единственный официальный представитель бренда в РФ</strong></div>
+    <div class="item"><div class="status-lockup"><img class="modern-logo" src="img/modern-wordmark.png" width="227" height="45" alt="MODERN"><span class="x" aria-hidden="true">×</span><img class="amfo-logo" src="img/amfodent-mark.png" width="289" height="139" alt="Амфодент"></div><strong>Единственный официальный представитель бренда в РФ</strong></div>
     <a href="#docs">Руководства на русском языке</a>
     <a href="#service">Гарантия и сервис</a>
   </div>
@@ -698,6 +695,6 @@ footer{border-top:1px solid var(--line);background:var(--mist);padding:40px 0;fo
 </footer>
 
 <script type="application/json" id="photoSets">{"10":{"dir":"img/sets/10","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg","09_kit.jpg"],"cover":"01_general.jpg"},"11":{"dir":"img/sets/11","files":["01_kit.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_open.jpg","08_marking.jpg"],"cover":"02_head_front.jpg"},"12":{"dir":"img/sets/12","files":["01_kit.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg"],"cover":"02_head_front.jpg"},"13":{"dir":"img/sets/13","files":["01_kit.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_coupling_front.jpg","08_marking.jpg"],"cover":"02_head_front.jpg"},"01":{"dir":"img/sets/01","files":["01_general.jpg","02_head_front.jpg","03_connection.jpg","04_marking.jpg","05_kit.jpg"],"cover":"01_general.jpg"},"02":{"dir":"img/sets/02","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_marking.jpg","05_kit.jpg"],"cover":"01_general.jpg"},"03":{"dir":"img/sets/03","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_marking.jpg","08_kit.jpg"],"cover":"01_general.jpg"},"04":{"dir":"img/sets/04","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_connection.jpg","05_marking.jpg","06_kit.jpg"],"cover":"01_general.jpg"},"05":{"dir":"img/sets/05","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_connection.jpg","05_marking.jpg","06_kit.jpg"],"cover":"01_general.jpg"},"06":{"dir":"img/sets/06","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_kit.jpg"],"cover":"01_general.jpg"},"07":{"dir":"img/sets/07","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_marking.jpg","08_kit.jpg"],"cover":"01_general.jpg"},"08":{"dir":"img/sets/08","files":["01_general.jpg","02_head_front.jpg","03_head_back.jpg","04_socket.jpg","05_coupling_ports.jpg","06_coupling_side.jpg","07_marking_original.jpg","08_kit.jpg"],"cover":"01_general.jpg"},"09":{"dir":"img/sets/09","files":["01_general.jpg","02_head_front.jpg","03_socket.jpg","04_coupling_ports.jpg","05_coupling_side.jpg","06_marking.jpg","07_kit.jpg"],"cover":"01_general.jpg"}}</script>
-<script src="catalog.js" defer></script>
+<script src="catalog.js?v=3" defer></script>
 </body>
 </html>

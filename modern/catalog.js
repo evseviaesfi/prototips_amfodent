@@ -1,5 +1,18 @@
 const filters = [...document.querySelectorAll('.chip')];
 const cards = [...document.querySelectorAll('.card')];
+
+if ('IntersectionObserver' in window) {
+  const cardObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('card-in-view');
+      cardObserver.unobserve(entry.target);
+    }
+  }, { threshold: 0.1 });
+
+  cards.forEach(card => cardObserver.observe(card));
+}
+
 const photoSets = JSON.parse(document.getElementById('photoSets').textContent);
 const gallery = document.getElementById('overlay');
 const galleryImage = document.getElementById('mImg');
