@@ -2,15 +2,16 @@ const filters = [...document.querySelectorAll('.chip')];
 const cards = [...document.querySelectorAll('.card')];
 
 if ('IntersectionObserver' in window) {
-  const cardObserver = new IntersectionObserver(entries => {
+  const panelObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
-      entry.target.classList.add('card-in-view');
-      cardObserver.unobserve(entry.target);
+      entry.target.classList.add('is-in-view');
+      panelObserver.unobserve(entry.target);
     }
   }, { threshold: 0.1 });
 
-  cards.forEach(card => cardObserver.observe(card));
+  document.querySelectorAll('.card, .c-row, .t-item, .doc, .svc, .kit-fig')
+    .forEach(panel => panelObserver.observe(panel));
 }
 
 const photoSets = JSON.parse(document.getElementById('photoSets').textContent);
@@ -64,7 +65,14 @@ function showPhoto(index) {
   const photo = photos[activePhoto];
   galleryImage.src = photo.url;
   galleryImage.alt = activeModel + ' — ' + photo.caption.toLowerCase();
-  imageLink.href = photo.url;
+  galleryImage.dataset.softEdges = photo.softEdges;
+  galleryImage.dataset.crop = photo.crop;
+  imageLink.hidden = Boolean(photo.crop);
+  if (photo.crop) {
+    imageLink.removeAttribute('href');
+  } else {
+    imageLink.href = photo.url;
+  }
   caption.textContent = photo.caption;
   photoCount.textContent = (activePhoto + 1) + ' / ' + photos.length;
   for (const [position, thumbnail] of [...thumbnailList.children].entries()) {
@@ -79,7 +87,9 @@ function openCard(card) {
   activeModel = card.querySelector('.sku').textContent;
   photos = set.files.map(file => ({
     url: set.dir + '/' + file,
-    caption: captions[file.slice(3, -4)] || 'Детали модели'
+    caption: captions[file.slice(3, -4)] || 'Детали модели',
+    softEdges: set.softEdges?.[file] || '',
+    crop: set.crop?.[file] || ''
   }));
 
   document.getElementById('mType').textContent = card.dataset.type;
@@ -97,6 +107,7 @@ function openCard(card) {
     const image = document.createElement('img');
     image.src = photo.url;
     image.alt = '';
+    image.dataset.crop = photo.crop;
     button.append(image);
     button.addEventListener('click', () => showPhoto(index));
     thumbnailList.append(button);
