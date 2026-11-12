@@ -18,6 +18,7 @@ const photoSets = JSON.parse(document.getElementById('photoSets').textContent);
 const gallery = document.getElementById('overlay');
 const galleryImage = document.getElementById('mImg');
 const thumbnailList = document.getElementById('mThumbs');
+const photoControls = document.getElementById('mControls');
 const caption = document.getElementById('mCap');
 const imageLink = document.getElementById('mOriginal');
 const photoCount = document.getElementById('mCount');
@@ -27,29 +28,16 @@ const priceForm = document.getElementById('priceForm');
 
 const captions = {
   general: 'Общий вид',
-  catalogue: 'Общий вид',
-  head_front: 'Головка спереди',
-  head_back: 'Головка сзади',
-  socket: 'Посадочное гнездо',
-  connection: 'Подключение',
+  head_back: 'Вид сзади',
   coupling_ports: 'Порты переходника',
   coupling_side: 'Переходник сбоку',
-  coupling_front: 'Переходник спереди',
-  coupling_open: 'Посадочная часть переходника',
-  marking: 'Маркировка',
-  marking_original: 'Маркировка',
-  kit: 'Комплект поставки'
+  kit: 'Комплект поставки',
+  boxed: 'Наконечник в упаковке'
 };
 
 let photos = [];
 let activePhoto = 0;
 let activeModel = '';
-
-function positionPhoto(image, placement = {}) {
-  image.style.setProperty('--photo-x', (placement.x || 0) + '%');
-  image.style.setProperty('--photo-y', (placement.y || 0) + '%');
-  image.style.setProperty('--photo-clip', placement.clip || 'none');
-}
 
 for (const filter of filters) {
   filter.addEventListener('click', () => {
@@ -72,14 +60,7 @@ function showPhoto(index) {
   const photo = photos[activePhoto];
   galleryImage.src = photo.url;
   galleryImage.alt = activeModel + ' — ' + photo.caption.toLowerCase();
-  galleryImage.dataset.softEdges = photo.softEdges;
-  positionPhoto(galleryImage, photo.placement);
-  imageLink.hidden = photo.hideOriginal;
-  if (imageLink.hidden) {
-    imageLink.removeAttribute('href');
-  } else {
-    imageLink.href = photo.url;
-  }
+  imageLink.href = photo.url;
   caption.textContent = photo.caption;
   photoCount.textContent = (activePhoto + 1) + ' / ' + photos.length;
   for (const [position, thumbnail] of [...thumbnailList.children].entries()) {
@@ -94,10 +75,7 @@ function openCard(card) {
   activeModel = card.querySelector('.sku').textContent;
   photos = set.files.map(file => ({
     url: set.dir + '/' + file,
-    caption: captions[file.slice(3, -4)] || 'Детали модели',
-    softEdges: set.softEdges?.[file] || '',
-    placement: set.placement?.[file],
-    hideOriginal: set.hideOriginal?.includes(file) || false
+    caption: captions[file.slice(3, -4)] || 'Детали модели'
   }));
 
   document.getElementById('mType').textContent = card.dataset.type;
@@ -106,8 +84,9 @@ function openCard(card) {
   document.getElementById('mAnalog').textContent = card.dataset.analog;
   document.getElementById('mPrice').textContent = card.dataset.price;
   thumbnailList.replaceChildren();
+  thumbnailList.hidden = photoControls.hidden = photos.length < 2;
 
-  for (const [index, photo] of photos.entries()) {
+  for (const [index, photo] of (photos.length > 1 ? photos : []).entries()) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'm-th';
@@ -115,12 +94,11 @@ function openCard(card) {
     const image = document.createElement('img');
     image.src = photo.url;
     image.alt = '';
-    positionPhoto(image, photo.placement);
     button.append(image);
     button.addEventListener('click', () => showPhoto(index));
     thumbnailList.append(button);
   }
-  showPhoto(set.files.indexOf(set.cover));
+  showPhoto(0);
   gallery.showModal();
   document.body.classList.add('gallery-open');
   gallery.scrollTop = 0;
@@ -142,7 +120,7 @@ gallery.addEventListener('click', event => {
   if (event.target === gallery) gallery.close();
 });
 gallery.addEventListener('keydown', event => {
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+  if (photos.length > 1 && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) {
     event.preventDefault();
     showPhoto(activePhoto + (event.key === 'ArrowLeft' ? -1 : 1));
   }
