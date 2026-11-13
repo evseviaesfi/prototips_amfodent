@@ -27,8 +27,9 @@ const modelField = document.getElementById('models');
 const priceForm = document.getElementById('priceForm');
 
 const captions = {
-  general: 'Общий вид',
-  head_back: 'Вид сзади',
+  general: 'Наконечник целиком',
+  head_front: 'Головка крупным планом',
+  head_back: 'Головка крупным планом · вид сзади',
   coupling_ports: 'Порты переходника',
   coupling_side: 'Переходник сбоку',
   kit: 'Комплект поставки',
@@ -75,7 +76,7 @@ function openCard(card) {
   activeModel = card.querySelector('.sku').textContent;
   photos = set.files.map(file => ({
     url: set.dir + '/' + file,
-    caption: captions[file.replace(/^(?:smile-)?\d+_/, '').replace(/\.[^.]+$/, '')] || 'Детали модели'
+    caption: captions[file.replace(/^(?:(?:smile|photo)-)?\d+_/, '').replace(/\.[^.]+$/, '')] || 'Детали модели'
   }));
 
   document.getElementById('mType').textContent = card.dataset.type;
