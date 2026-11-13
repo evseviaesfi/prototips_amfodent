@@ -75,7 +75,7 @@ function openCard(card) {
   activeModel = card.querySelector('.sku').textContent;
   photos = set.files.map(file => ({
     url: set.dir + '/' + file,
-    caption: captions[file.slice(3, -4)] || 'Детали модели'
+    caption: captions[file.replace(/^(?:smile-)?\d+_/, '').replace(/\.[^.]+$/, '')] || 'Детали модели'
   }));
 
   document.getElementById('mType').textContent = card.dataset.type;
