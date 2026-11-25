@@ -63,6 +63,8 @@ function showPhoto(index) {
   const photo = photos[activePhoto];
   galleryImage.src = photo.url;
   galleryImage.toggleAttribute('data-center-head', photo.centerHead);
+  galleryImage.style.setProperty('--head-origin', photo.headOrigin);
+  galleryImage.toggleAttribute('data-wide-detail', photo.wideDetail);
   galleryImage.alt = activeModel + ' — ' + photo.caption.toLowerCase();
   imageLink.href = photo.url;
   caption.textContent = photo.caption;
@@ -80,6 +82,8 @@ function openCard(card) {
   photos = set.files.map(file => ({
     url: set.dir + '/' + file,
     centerHead: file === set.centeredHead,
+    headOrigin: file === set.centeredHead ? (set.headOrigin || '') : '',
+    wideDetail: file === set.wideDetail,
     caption: captions[file.replace(/^(?:(?:smile|photo)-)?\d+_/, '').replace(/\.[^.]+$/, '')] || 'Детали модели'
   }));
 
