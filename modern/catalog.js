@@ -34,6 +34,7 @@ const captions = {
   marking_original: 'Маркировка на корпусе',
   coupling_ports: 'Порты переходника',
   coupling_side: 'Переходник сбоку',
+  coupling_front: 'Переходник крупным планом',
   kit: 'Комплект поставки',
   boxed: 'Наконечник в упаковке'
 };
