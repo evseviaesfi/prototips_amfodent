@@ -30,6 +30,8 @@ const captions = {
   general: 'Наконечник целиком',
   head_front: 'Головка крупным планом',
   head_back: 'Головка крупным планом · вид сзади',
+  marking: 'Маркировка на корпусе',
+  marking_original: 'Маркировка на корпусе',
   coupling_ports: 'Порты переходника',
   coupling_side: 'Переходник сбоку',
   kit: 'Комплект поставки',
@@ -60,6 +62,7 @@ function showPhoto(index) {
   activePhoto = (index + photos.length) % photos.length;
   const photo = photos[activePhoto];
   galleryImage.src = photo.url;
+  galleryImage.toggleAttribute('data-center-head', photo.centerHead);
   galleryImage.alt = activeModel + ' — ' + photo.caption.toLowerCase();
   imageLink.href = photo.url;
   caption.textContent = photo.caption;
@@ -76,6 +79,7 @@ function openCard(card) {
   activeModel = card.querySelector('.sku').textContent;
   photos = set.files.map(file => ({
     url: set.dir + '/' + file,
+    centerHead: file === set.centeredHead,
     caption: captions[file.replace(/^(?:(?:smile|photo)-)?\d+_/, '').replace(/\.[^.]+$/, '')] || 'Детали модели'
   }));
 
