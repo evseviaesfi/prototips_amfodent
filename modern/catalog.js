@@ -92,6 +92,7 @@ function openCard(card) {
   document.getElementById('mSku').textContent = activeModel;
   document.getElementById('mSpec').textContent = card.dataset.spec + '. Подключение: ' + card.dataset.cpl + '.';
   document.getElementById('mAnalog').textContent = card.dataset.analog;
+  document.querySelector('.m-analog').style.display = card.dataset.analog ? '' : 'none';
   document.getElementById('mPrice').textContent = card.dataset.price;
   thumbnailList.replaceChildren();
   thumbnailList.hidden = photoControls.hidden = photos.length < 2;
