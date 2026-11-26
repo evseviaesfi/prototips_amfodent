@@ -154,9 +154,10 @@ priceForm.addEventListener('submit', event => {
   const organization = priceForm.elements.organization.value.trim();
   const city = priceForm.elements.city.value.trim();
   const models = modelField.value.trim();
-  if (!organization || !models) {
-    document.getElementById('mailStatus').textContent = 'Укажите организацию и интересующие модели.';
-    (organization ? modelField : priceForm.elements.organization).focus();
+  const contact = priceForm.elements.contact.value.trim();
+  if (!organization || !contact || !models) {
+    document.getElementById('mailStatus').textContent = 'Укажите организацию, телефон или email и интересующие модели.';
+    (!organization ? priceForm.elements.organization : !contact ? priceForm.elements.contact : modelField).focus();
     return;
   }
   const subject = encodeURIComponent('Запрос цен и наличия MODERN');
@@ -164,9 +165,10 @@ priceForm.addEventListener('submit', event => {
     'Здравствуйте! Подскажите цены и наличие наконечников MODERN.',
     'Организация: ' + organization,
     city && 'Город: ' + city,
+    'Контакт: ' + contact,
     'Модели и количество:\n' + models
   ].filter(Boolean).join('\r\n\r\n');
   document.getElementById('mailStatus').textContent =
-    'Если черновик не открылся, напишите напрямую на zakaz@amfodent.ru.';
+    'Нажмите «Отправить» в письме. Если оно не открылось, напишите на zakaz@amfodent.ru или позвоните: 8 800 550-45-35.';
   window.location.href = 'mailto:zakaz@amfodent.ru?subject=' + subject + '&body=' + encodeURIComponent(message);
 });

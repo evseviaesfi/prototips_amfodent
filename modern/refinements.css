@@ -369,3 +369,21 @@ img[data-soft-edges~="bottom"] { --fade-bottom: var(--soft-edge); }
 }
 .mobile-nav summary { list-style: none; white-space: nowrap; }
 .mobile-nav summary::-webkit-details-marker { display: none; }
+
+/* Правки после аудита */
+.med-warning { margin: 0 0 18px; font-size: 14px; font-weight: 600; line-height: 1.45; }
+footer .med-warning { grid-column: 1 / -1; width: 100%; margin: 0; }
+@media (max-width: 1110px), (pointer: coarse) {
+  .tlink, .status-links a, .hero-photo-link, address.contact a, .foot-links a, .mobile-nav summary { display: inline-flex; align-items: center; min-height: 44px; }
+}
+@media (max-width: 620px) {
+  .ds { min-width: 0; }
+  .ds thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .ds, .ds tbody, .ds tr, .ds td { display: block; width: 100%; }
+  .ds tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .ds td { display: flex; justify-content: space-between; gap: 12px; padding: 4px 14px; border: 0; text-align: right; }
+  .ds td::before { color: var(--steel); text-align: left; font-weight: 500; }
+  .ds td:first-child { font-weight: 700; text-align: left; }
+  .ds td:nth-child(2)::before { content: "MODERN"; }
+  .ds td:nth-child(3)::before { content: "Переходник"; }
+}
