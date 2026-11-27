@@ -90,7 +90,7 @@ function openCard(card) {
 
   document.getElementById('mType').textContent = card.dataset.type;
   document.getElementById('mSku').textContent = activeModel;
-  document.getElementById('mSpec').textContent = card.dataset.spec + '. Подключение: ' + card.dataset.cpl + '.';
+  document.getElementById('mSpec').textContent = card.dataset.spec + (card.dataset.cpl.startsWith('MD-') ? '. Переходник: ' : '. Подключение: ') + card.dataset.cpl + '.';
   document.getElementById('mAnalog').textContent = card.dataset.analog;
   document.querySelector('.m-analog').style.display = card.dataset.analog ? '' : 'none';
   document.getElementById('mPrice').textContent = card.dataset.price;
